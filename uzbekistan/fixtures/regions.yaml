@@ -1,0 +1,84 @@
+- model: uzbekistan.region
+  pk: 1
+  fields:
+    name_uz: Qoraqalpog‘iston Respublikasi
+    name_oz: Қорақалпоғистон Республикаси
+    name_ru: Республика Каракалпакстан
+- model: uzbekistan.region
+  pk: 2
+  fields:
+    name_uz: Andijon viloyati
+    name_oz: Андижон вилояти
+    name_ru: Андижанская область
+- model: uzbekistan.region
+  pk: 3
+  fields:
+    name_uz: Buxoro viloyati
+    name_oz: Бухоро вилояти
+    name_ru: Бухарская область
+- model: uzbekistan.region
+  pk: 4
+  fields:
+    name_uz: Jizzax viloyati
+    name_oz: Жиззах вилояти
+    name_ru: Джизакская область
+- model: uzbekistan.region
+  pk: 5
+  fields:
+    name_uz: Qashqadaryo viloyati
+    name_oz: Қашқадарё вилояти
+    name_ru: Кашкадарьинская область
+- model: uzbekistan.region
+  pk: 6
+  fields:
+    name_uz: Navoiy viloyati
+    name_oz: Навоий вилояти
+    name_ru: Навоийская область
+- model: uzbekistan.region
+  pk: 7
+  fields:
+    name_uz: Namangan viloyati
+    name_oz: Наманган вилояти
+    name_ru: Наманганская область
+- model: uzbekistan.region
+  pk: 8
+  fields:
+    name_uz: Samarqand viloyati
+    name_oz: Самарқанд вилояти
+    name_ru: Самаркандская область
+- model: uzbekistan.region
+  pk: 9
+  fields:
+    name_uz: Surxandaryo viloyati
+    name_oz: Сурхандарё вилояти
+    name_ru: Сурхандарьинская область
+- model: uzbekistan.region
+  pk: 10
+  fields:
+    name_uz: Sirdaryo viloyati
+    name_oz: Сирдарё вилояти
+    name_ru: Сырдарьинская область
+- model: uzbekistan.region
+  pk: 11
+  fields:
+    name_uz: Toshkent viloyati
+    name_oz: Тошкент вилояти
+    name_ru: Ташкентская область
+- model: uzbekistan.region
+  pk: 12
+  fields:
+    name_uz: Farg‘ona viloyati
+    name_oz: Фарғона вилояти
+    name_ru: Ферганская область
+- model: uzbekistan.region
+  pk: 13
+  fields:
+    name_uz: Xorazm viloyati
+    name_oz: Хоразм вилояти
+    name_ru: Хорезмская область
+- model: uzbekistan.region
+  pk: 14
+  fields:
+    name_uz: Toshkent shahri
+    name_oz: Тошкент шаҳри
+    name_ru: Город Ташкент
