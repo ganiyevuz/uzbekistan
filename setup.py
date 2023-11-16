@@ -9,7 +9,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name=PACKAGE_NAME,
-    version='2.5.6',
+    version='2.5.7',
     description='Full Database of Uzbekistan Regions, Districts & Quarters with Latin, Cyrillic and Russian versions.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -19,10 +19,9 @@ setup(
     packages=['uzbekistan'],
     include_package_data=True,
     install_requires=[
-        'Django>=4.0',
+        'Django',
         'djangorestframework',
         'django-filter',
-        'yaml'
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
