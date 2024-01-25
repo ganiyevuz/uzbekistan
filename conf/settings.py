@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'uzbekistan.urls'
+ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
     {
