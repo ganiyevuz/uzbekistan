@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -19,6 +18,7 @@ class Migration(migrations.Migration):
                 ('name_uz', models.CharField(max_length=255)),
                 ('name_oz', models.CharField(max_length=255)),
                 ('name_ru', models.CharField(max_length=255)),
+                ('name_en', models.CharField(max_length=255)),
             ],
             options={
                 'db_table': 'regions',

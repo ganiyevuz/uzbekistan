@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('uzbekistan', '0001_initial'),
     ]
@@ -23,6 +22,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='region',
             name='name_uz',
+            field=models.CharField(max_length=255, unique=True),
+        ),
+        migrations.AlterField(
+            model_name='region',
+            name='name_en',
             field=models.CharField(max_length=255, unique=True),
         ),
         migrations.AlterUniqueTogether(

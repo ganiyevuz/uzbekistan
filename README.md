@@ -53,10 +53,7 @@ python3 manage.py loaddata districts
 A new version available that includes many updates.
 
 - Added **Models** to Django Admin panel
-- Added **villages** table covering towns and districts has been added,
-- Deprecated **Quarters** table (Available in MySQL and MSSQL backups),
-- Added **Ko‘kdala tumani**
-- etc...
+- English translations added to **Region**
 
 ## Suggestions / Feedbacks
 

@@ -5,6 +5,7 @@ class Region(Model):
     name_uz = CharField(max_length=255, unique=True)
     name_oz = CharField(max_length=255, unique=True)
     name_ru = CharField(max_length=255, unique=True)
+    name_en = CharField(max_length=255, unique=True)
 
     class Meta:
         db_table = 'regions'

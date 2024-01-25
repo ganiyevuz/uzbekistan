@@ -6,9 +6,9 @@ from uzbekistan.models import Region, District
 
 @admin.register(Region)
 class RegionAdmin(ModelAdmin):
-    list_display = ('name_uz', 'name_oz', 'name_ru')
-    search_fields = ('name_uz', 'name_oz', 'name_ru')
-    sortable_by = ('name_uz', 'name_oz', 'name_ru')
+    list_display = ('name_uz', 'name_oz', 'name_ru', 'name_en')
+    search_fields = ('name_uz', 'name_oz', 'name_ru', 'name_en')
+    sortable_by = ('name_uz', 'name_oz', 'name_ru', 'name_en')
 
 
 @admin.register(District)
