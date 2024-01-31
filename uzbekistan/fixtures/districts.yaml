@@ -708,7 +708,7 @@
     name_uz: To‘raqo‘rg‘on tumani
     name_oz: Тўрақўрғон тумани
     name_ru: Туракурганский район
-    name_en: Toragorgan district
+    name_en: Turakurgan district
     region: 7
 - model: uzbekistan.district
   pk: 104
