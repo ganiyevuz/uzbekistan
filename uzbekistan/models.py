@@ -45,7 +45,7 @@ class Village(Model):
 
 
 def check_model(model):
-    if model._meta.manged or not settings.UZBEKISTAN['models'].get(model.__name__.lower(), False):
+    if model._meta.abstract or not settings.UZBEKISTAN['models'].get(model.__name__.lower(), False):
         raise NotImplementedError(
             f"The model '{model}' is not enabled in the current configuration. "
             "Please check that this model is set to True in the 'models' dictionary "
