@@ -32,6 +32,24 @@ INSTALLED_APPS = [
 ]
 ```
 
+Configure views and models to which feature you want to use in your project.
+You can enable/disable models and views for regions, districts and villages.
+
+```python3
+UZBEKISTAN = {
+    'models': {
+        'region': True,
+        'district': True,
+        'village': False,
+    },
+    'views': {
+        'region': True,
+        'district': True,
+        'village': False,
+    }
+}
+```
+
 Include URL Configuration in the Project's urls.py
 
 ```python3
@@ -52,6 +70,9 @@ python3 manage.py loaddata districts
 
 A new version available that includes many updates.
 
+- Added **Villages** to the database
+- Added Dynamic **URLs** for all models
+- Added Dynamic **Views** for all models
 - Added **Models** to Django Admin panel
 - English translations added to **Region**
 

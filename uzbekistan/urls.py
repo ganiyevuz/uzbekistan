@@ -1,8 +1,8 @@
 from django.urls import path
 
-from uzbekistan.views import RegionListAPIView, DistrictListAPIView
+from uzbekistan.dynamic_importer import import_conditional_classes
 
-urlpatterns = [
-    path('regions/', RegionListAPIView.as_view(), name='region-list'),
-    path('districts/<int:region_id>/', DistrictListAPIView.as_view(), name='district-list'),
-]
+urlpatterns = []
+for view in import_conditional_classes('uzbekistan.views', 'views'):
+    url_path = f'{view.url_path}/<int:{view.url_relation}>/' if view.url_relation else f'{view.url_path}/'
+    urlpatterns.append(path(url_path, view.as_view(), name=f'{view.url_name}'))

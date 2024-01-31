@@ -4,6 +4,7 @@
     name_uz: Amudaryo tumani
     name_oz: Амударё тумани
     name_ru: Амударьинский район
+    name_en: Amudarya district
     region: 1
 - model: uzbekistan.district
   pk: 16
@@ -11,6 +12,7 @@
     name_uz: Beruniy tumani
     name_oz: Беруний тумани
     name_ru: Берунийский район
+    name_en: Beruni district
     region: 1
 - model: uzbekistan.district
   pk: 17
@@ -18,6 +20,7 @@
     name_uz: Kegayli tumani
     name_oz: Кегайли тумани
     name_ru: Кегейлийский район
+    name_en: Kegaili district
     region: 1
 - model: uzbekistan.district
   pk: 18
@@ -25,6 +28,7 @@
     name_uz: Qonliko‘l tumani
     name_oz: Қонликўл тумани
     name_ru: Канлыкульский район
+    name_en: Konlikol district
     region: 1
 - model: uzbekistan.district
   pk: 19
@@ -32,6 +36,7 @@
     name_uz: Qorao‘zak tumani
     name_oz: Қораўзак тумани
     name_ru: Караузякский район
+    name_en: Karaozak district
     region: 1
 - model: uzbekistan.district
   pk: 20
@@ -39,6 +44,7 @@
     name_uz: Qo‘ng‘irot tumani
     name_oz: Қўнғирот тумани
     name_ru: Кунградский район
+    name_en: Kunirat district
     region: 1
 - model: uzbekistan.district
   pk: 21
@@ -46,6 +52,7 @@
     name_uz: Mo‘ynoq tumani
     name_oz: Мўйноқ тумани
     name_ru: Муйнакский район
+    name_en: Moynok district
     region: 1
 - model: uzbekistan.district
   pk: 22
@@ -53,6 +60,7 @@
     name_uz: Nukus tumani
     name_oz: Нукус тумани
     name_ru: Нукусский район
+    name_en: Nukus district
     region: 1
 - model: uzbekistan.district
   pk: 23
@@ -60,6 +68,7 @@
     name_uz: Nukus shahri
     name_oz: Нукус шаҳри
     name_ru: город Нукус
+    name_en: Nukus city
     region: 1
 - model: uzbekistan.district
   pk: 24
@@ -67,6 +76,7 @@
     name_uz: Taxtako‘pir tumani
     name_oz: Тахтакўпир тумани
     name_ru: Тахтакупырский район
+    name_en: Takhtakorpir district
     region: 1
 - model: uzbekistan.district
   pk: 25
@@ -74,6 +84,7 @@
     name_uz: To‘rtko‘l tumani
     name_oz: Тўрткўл тумани
     name_ru: Турткульский район
+    name_en: Tortkol district
     region: 1
 - model: uzbekistan.district
   pk: 26
@@ -81,6 +92,7 @@
     name_uz: Xo‘jayli tumani
     name_oz: Хўжайли тумани
     name_ru: Ходжейлийский район
+    name_en: Khojaly district
     region: 1
 - model: uzbekistan.district
   pk: 27
@@ -88,6 +100,7 @@
     name_uz: Chimboy tumani
     name_oz: Чимбой тумани
     name_ru: Чимбайский район
+    name_en: Chimboy district
     region: 1
 - model: uzbekistan.district
   pk: 28
@@ -95,6 +108,7 @@
     name_uz: Shumanay tumani
     name_oz: Шуманай тумани
     name_ru: Шуманайский район
+    name_en: Shumanay district
     region: 1
 - model: uzbekistan.district
   pk: 29
@@ -102,6 +116,7 @@
     name_uz: Ellikqal‘a tumani
     name_oz: Элликқалъа тумани
     name_ru: Элликкалинский район
+    name_en: Ellikkala district
     region: 1
 - model: uzbekistan.district
   pk: 30
@@ -109,6 +124,7 @@
     name_uz: Andijon shahri
     name_oz: Андижон шаҳри
     name_ru: город Андижан
+    name_en: Andijan city
     region: 2
 - model: uzbekistan.district
   pk: 31
@@ -116,6 +132,7 @@
     name_uz: Andijon tumani
     name_oz: Андижон тумани
     name_ru: Андижанский район
+    name_en: Andijan district
     region: 2
 - model: uzbekistan.district
   pk: 32
@@ -123,6 +140,7 @@
     name_uz: Asaka tumani
     name_oz: Асака тумани
     name_ru: Асакинский район
+    name_en: Asaka District
     region: 2
 - model: uzbekistan.district
   pk: 33
@@ -130,6 +148,7 @@
     name_uz: Baliqchi tumani
     name_oz: Балиқчи тумани
     name_ru: Балыкчинский район
+    name_en: Baliqchi district
     region: 2
 - model: uzbekistan.district
   pk: 34
@@ -137,6 +156,7 @@
     name_uz: Buloqboshi tumani
     name_oz: Булоқбоши тумани
     name_ru: Булакбашинский район
+    name_en: Bulagboshi district
     region: 2
 - model: uzbekistan.district
   pk: 35
@@ -144,6 +164,7 @@
     name_uz: Bo‘z tumani
     name_oz: Бўз тумани
     name_ru: Бозский район
+    name_en: Boz district
     region: 2
 - model: uzbekistan.district
   pk: 36
@@ -151,6 +172,7 @@
     name_uz: Jalaquduq tumani
     name_oz: Жалақудуқ тумани
     name_ru: Джалакудукский район
+    name_en: Jalakuduk district
     region: 2
 - model: uzbekistan.district
   pk: 37
@@ -158,6 +180,7 @@
     name_uz: Izbosgan tumani
     name_oz: Избосган тумани
     name_ru: Избасканский район
+    name_en: Izbosgan district
     region: 2
 - model: uzbekistan.district
   pk: 38
@@ -165,6 +188,7 @@
     name_uz: Qorasuv shahri
     name_oz: Қорасув шаҳри
     name_ru: город Карасув
+    name_en: Karasuv city
     region: 2
 - model: uzbekistan.district
   pk: 39
@@ -172,6 +196,7 @@
     name_uz: Qo‘rg‘ontepa tumani
     name_oz: Қўрғонтепа тумани
     name_ru: Кургантепинский район
+    name_en: Korgontepa district
     region: 2
 - model: uzbekistan.district
   pk: 40
@@ -179,6 +204,7 @@
     name_uz: Marhamat tumani
     name_oz: Марҳамат тумани
     name_ru: Мархаматский район
+    name_en: Merhamat district
     region: 2
 - model: uzbekistan.district
   pk: 41
@@ -186,6 +212,7 @@
     name_uz: Oltinko‘l tumani
     name_oz: Олтинкўл тумани
     name_ru: Алтынкульский район
+    name_en: Oltinkol district
     region: 2
 - model: uzbekistan.district
   pk: 42
@@ -193,6 +220,7 @@
     name_uz: Paxtaobod tumani
     name_oz: Пахтаобод тумани
     name_ru: Пахтаабадский район
+    name_en: Pakhtaobad district
     region: 2
 - model: uzbekistan.district
   pk: 43
@@ -200,6 +228,7 @@
     name_uz: Ulug‘nor tumani
     name_oz: Улуғнор тумани
     name_ru: Улугнорский район
+    name_en: Ulugnor district
     region: 2
 - model: uzbekistan.district
   pk: 44
@@ -207,6 +236,7 @@
     name_uz: Xonabod tumani
     name_oz: Хонабод тумани
     name_ru: город Ханабад
+    name_en: Khanabad district
     region: 2
 - model: uzbekistan.district
   pk: 45
@@ -214,6 +244,7 @@
     name_uz: Xo‘jaobod tumani
     name_oz: Хўжаобод тумани
     name_ru: Ходжаабадский район
+    name_en: Khojaobad district
     region: 2
 - model: uzbekistan.district
   pk: 46
@@ -221,6 +252,7 @@
     name_uz: Shahrixon tumani
     name_oz: Шаҳрихон тумани
     name_ru: Шахриханский район
+    name_en: Shahrikhan district
     region: 2
 - model: uzbekistan.district
   pk: 47
@@ -228,6 +260,7 @@
     name_uz: Buxoro shahri
     name_oz: Бухоро шаҳри
     name_ru: город Бухара
+    name_en: Bukhara city
     region: 3
 - model: uzbekistan.district
   pk: 48
@@ -235,6 +268,7 @@
     name_uz: Buxoro tumani
     name_oz: Бухоро тумани
     name_ru: Бухарский район
+    name_en: Bukhara district
     region: 3
 - model: uzbekistan.district
   pk: 49
@@ -242,6 +276,7 @@
     name_uz: Vobkent tumani
     name_oz: Вобкент тумани
     name_ru: Вабкентский район
+    name_en: Vobkent district
     region: 3
 - model: uzbekistan.district
   pk: 50
@@ -249,6 +284,7 @@
     name_uz: G‘ijduvon tumani
     name_oz: Ғиждувон тумани
     name_ru: Гиждуванский район
+    name_en: Gijduvan district
     region: 3
 - model: uzbekistan.district
   pk: 51
@@ -256,6 +292,7 @@
     name_uz: Jondor tumani
     name_oz: Жондор тумани
     name_ru: Жондорский район
+    name_en: Jondor district
     region: 3
 - model: uzbekistan.district
   pk: 52
@@ -263,6 +300,7 @@
     name_uz: Kogon tumani
     name_oz: Когон тумани
     name_ru: Каганский район
+    name_en: Kogon district
     region: 3
 - model: uzbekistan.district
   pk: 53
@@ -270,6 +308,7 @@
     name_uz: Kogon shahri
     name_oz: Когон шаҳри
     name_ru: город Каган
+    name_en: Kogon city
     region: 3
 - model: uzbekistan.district
   pk: 54
@@ -277,6 +316,7 @@
     name_uz: Qorako‘l tumani
     name_oz: Қоракўл тумани
     name_ru: Каракульский район
+    name_en: Karakol district
     region: 3
 - model: uzbekistan.district
   pk: 55
@@ -284,6 +324,7 @@
     name_uz: Qorovulbozor tumani
     name_oz: Қоровулбозор тумани
     name_ru: Караулбазарский район
+    name_en: Karovulbazar district
     region: 3
 - model: uzbekistan.district
   pk: 56
@@ -291,6 +332,7 @@
     name_uz: Olot tumani
     name_oz: Олот тумани
     name_ru: Алатский район
+    name_en: Olot district
     region: 3
 - model: uzbekistan.district
   pk: 57
@@ -298,6 +340,7 @@
     name_uz: Peshku tumani
     name_oz: Пешку тумани
     name_ru: Пешкунский район
+    name_en: Peshku district
     region: 3
 - model: uzbekistan.district
   pk: 58
@@ -305,6 +348,7 @@
     name_uz: Romitan tumani
     name_oz: Ромитан тумани
     name_ru: Ромитанский район
+    name_en: Romitan district
     region: 3
 - model: uzbekistan.district
   pk: 59
@@ -312,6 +356,7 @@
     name_uz: Shofirkon tumani
     name_oz: Шофиркон тумани
     name_ru: Шафирканский район
+    name_en: Shafirkon district
     region: 3
 - model: uzbekistan.district
   pk: 60
@@ -319,6 +364,7 @@
     name_uz: Arnasoy tumani
     name_oz: Арнасой тумани
     name_ru: Арнасайский район
+    name_en: Arnasoy district
     region: 4
 - model: uzbekistan.district
   pk: 61
@@ -326,6 +372,7 @@
     name_uz: Baxmal tumani
     name_oz: Бахмал тумани
     name_ru: Бахмальский район
+    name_en: Velvet district
     region: 4
 - model: uzbekistan.district
   pk: 62
@@ -333,6 +380,7 @@
     name_uz: G‘allaorol tumani
     name_oz: Ғаллаорол тумани
     name_ru: Галляаральский район
+    name_en: Gallaorol district
     region: 4
 - model: uzbekistan.district
   pk: 63
@@ -340,6 +388,7 @@
     name_uz: Do‘stlik tumani
     name_oz: Дўстлик тумани
     name_ru: Дустликский район
+    name_en: Dostlik district
     region: 4
 - model: uzbekistan.district
   pk: 64
@@ -347,6 +396,7 @@
     name_uz: Sh.Rashidov tumani
     name_oz: Ш.Рашидов тумани
     name_ru: Шараф-Рашидовский район
+    name_en: Sh.Rashidov district
     region: 4
 - model: uzbekistan.district
   pk: 65
@@ -354,6 +404,7 @@
     name_uz: Jizzax shahri
     name_oz: Жиззах шаҳри
     name_ru: город Джизак
+    name_en: The city of Jizzakh
     region: 4
 - model: uzbekistan.district
   pk: 66
@@ -361,6 +412,7 @@
     name_uz: Zarbdor tumani
     name_oz: Зарбдор тумани
     name_ru: Зарбдарский район
+    name_en: Zarbdar district
     region: 4
 - model: uzbekistan.district
   pk: 67
@@ -368,6 +420,7 @@
     name_uz: Zafarobod tumani
     name_oz: Зафаробод тумани
     name_ru: Зафарабадский район
+    name_en: Zafarabad district
     region: 4
 - model: uzbekistan.district
   pk: 68
@@ -375,6 +428,7 @@
     name_uz: Zomin tumani
     name_oz: Зомин тумани
     name_ru: Зааминский район
+    name_en: Zomin district
     region: 4
 - model: uzbekistan.district
   pk: 69
@@ -382,6 +436,7 @@
     name_uz: Mirzacho‘l tumani
     name_oz: Мирзачўл тумани
     name_ru: Мирзачульский район
+    name_en: Mirzachol district
     region: 4
 - model: uzbekistan.district
   pk: 70
@@ -389,6 +444,7 @@
     name_uz: Paxtakor tumani
     name_oz: Пахтакор тумани
     name_ru: Пахтакорский район
+    name_en: Pakhtakorsky district
     region: 4
 - model: uzbekistan.district
   pk: 71
@@ -396,6 +452,7 @@
     name_uz: Forish tumani
     name_oz: Фориш тумани
     name_ru: Фаришский район
+    name_en: Forish district
     region: 4
 - model: uzbekistan.district
   pk: 72
@@ -403,6 +460,7 @@
     name_uz: Yangiobod tumani
     name_oz: Янгиобод тумани
     name_ru: Янгиабадский район
+    name_en: Yangiabad district
     region: 4
 - model: uzbekistan.district
   pk: 73
@@ -410,6 +468,7 @@
     name_uz: G‘uzor tumani
     name_oz: Ғузор тумани
     name_ru: Гузарский район
+    name_en: Guzor district
     region: 5
 - model: uzbekistan.district
   pk: 74
@@ -417,6 +476,7 @@
     name_uz: Dehqonobod tumani
     name_oz: Деҳқонобод тумани
     name_ru: Дехканабадский район
+    name_en: Dehkanabad district
     region: 5
 - model: uzbekistan.district
   pk: 75
@@ -424,6 +484,7 @@
     name_uz: Qamashi tumani
     name_oz: Қамаши тумани
     name_ru: Камашинский район
+    name_en: Kamashi district
     region: 5
 - model: uzbekistan.district
   pk: 76
@@ -431,6 +492,7 @@
     name_uz: Qarshi tumani
     name_oz: Қарши тумани
     name_ru: Каршинский район
+    name_en: Karshi district
     region: 5
 - model: uzbekistan.district
   pk: 77
@@ -438,6 +500,7 @@
     name_uz: Qarshi shahri
     name_oz: Қарши шаҳри
     name_ru: город Карши
+    name_en: Karshi city
     region: 5
 - model: uzbekistan.district
   pk: 78
@@ -445,6 +508,7 @@
     name_uz: Kasbi tumani
     name_oz: Касби тумани
     name_ru: Касбийский район
+    name_en: Kasbi district
     region: 5
 - model: uzbekistan.district
   pk: 79
@@ -452,6 +516,7 @@
     name_uz: Kitob tumani
     name_oz: Китоб тумани
     name_ru: Китабский район
+    name_en: Kitab district
     region: 5
 - model: uzbekistan.district
   pk: 80
@@ -459,6 +524,7 @@
     name_uz: Koson tumani
     name_oz: Косон тумани
     name_ru: Касанский район
+    name_en: Koson district
     region: 5
 - model: uzbekistan.district
   pk: 81
@@ -466,6 +532,7 @@
     name_uz: Mirishkor tumani
     name_oz: Миришкор тумани
     name_ru: Миришкорский район
+    name_en: Mirishkor district
     region: 5
 - model: uzbekistan.district
   pk: 82
@@ -473,6 +540,7 @@
     name_uz: Muborak tumani
     name_oz: Муборак тумани
     name_ru: Мубарекский район
+    name_en: Mubarak district
     region: 5
 - model: uzbekistan.district
   pk: 83
@@ -480,6 +548,7 @@
     name_uz: Nishon tumani
     name_oz: Нишон тумани
     name_ru: Нишанский район
+    name_en: Nishan district
     region: 5
 - model: uzbekistan.district
   pk: 84
@@ -487,6 +556,7 @@
     name_uz: Chiroqchi tumani
     name_oz: Чироқчи тумани
     name_ru: Чиракчинский район
+    name_en: Chirakchi district
     region: 5
 - model: uzbekistan.district
   pk: 85
@@ -494,6 +564,7 @@
     name_uz: Shahrisabz tumani
     name_oz: Шаҳрисабз тумани
     name_ru: Шахрисабзский район
+    name_en: Shahrisabz district
     region: 5
 - model: uzbekistan.district
   pk: 86
@@ -501,6 +572,7 @@
     name_uz: Yakkabog‘ tumani
     name_oz: Яккабоғ тумани
     name_ru: Яккабагский район
+    name_en: Yakkabog district
     region: 5
 - model: uzbekistan.district
   pk: 87
@@ -508,6 +580,7 @@
     name_uz: Zarafshon shahri
     name_oz: Зарафшон шаҳри
     name_ru: город Зарафшан
+    name_en: Zarafshan city
     region: 6
 - model: uzbekistan.district
   pk: 88
@@ -515,6 +588,7 @@
     name_uz: Karmana tumani
     name_oz: Кармана тумани
     name_ru: Карманинский район
+    name_en: Karmana district
     region: 6
 - model: uzbekistan.district
   pk: 89
@@ -522,6 +596,7 @@
     name_uz: Qiziltepa tumani
     name_oz: Қизилтепа тумани
     name_ru: Кызылтепинский район
+    name_en: Kyziltepa district
     region: 6
 - model: uzbekistan.district
   pk: 90
@@ -529,6 +604,7 @@
     name_uz: Konimex tumani
     name_oz: Конимех тумани
     name_ru: Канимехский район
+    name_en: Konimex district
     region: 6
 - model: uzbekistan.district
   pk: 91
@@ -536,6 +612,7 @@
     name_uz: Navbahor tumani
     name_oz: Навбаҳор тумани
     name_ru: Навбахорский район
+    name_en: Navbahor district
     region: 6
 - model: uzbekistan.district
   pk: 92
@@ -543,6 +620,7 @@
     name_uz: Navoiy shahri
     name_oz: Навоий шаҳри
     name_ru: город Навои
+    name_en: Navoi city
     region: 6
 - model: uzbekistan.district
   pk: 93
@@ -550,6 +628,7 @@
     name_uz: Nurota tumani
     name_oz: Нурота тумани
     name_ru: Нуратинский район
+    name_en: Nurota district
     region: 6
 - model: uzbekistan.district
   pk: 94
@@ -557,6 +636,7 @@
     name_uz: Tomdi tumani
     name_oz: Томди тумани
     name_ru: Тамдынский район
+    name_en: Tomdi district
     region: 6
 - model: uzbekistan.district
   pk: 95
@@ -564,6 +644,7 @@
     name_uz: Uchquduq tumani
     name_oz: Учқудуқ тумани
     name_ru: Учкудукский район
+    name_en: Uzkuduk district
     region: 6
 - model: uzbekistan.district
   pk: 96
@@ -571,6 +652,7 @@
     name_uz: Xatirchi tumani
     name_oz: Хатирчи тумани
     name_ru: Хатырчинский район
+    name_en: Khatirchi district
     region: 6
 - model: uzbekistan.district
   pk: 97
@@ -578,6 +660,7 @@
     name_uz: Kosonsoy tumani
     name_oz: Косонсой тумани
     name_ru: Касансайский район
+    name_en: Kosonsoy district
     region: 7
 - model: uzbekistan.district
   pk: 98
@@ -585,6 +668,7 @@
     name_uz: Mingbuloq tumani
     name_oz: Мингбулоқ тумани
     name_ru: Мингбулакский район
+    name_en: Mingbulok district
     region: 7
 - model: uzbekistan.district
   pk: 99
@@ -592,6 +676,7 @@
     name_uz: Namangan tumani
     name_oz: Наманган тумани
     name_ru: Наманганский район
+    name_en: Namangan district
     region: 7
 - model: uzbekistan.district
   pk: 100
@@ -599,6 +684,7 @@
     name_uz: Namangan shahri
     name_oz: Наманган шаҳри
     name_ru: город Наманган
+    name_en: Namangan city
     region: 7
 - model: uzbekistan.district
   pk: 101
@@ -606,6 +692,7 @@
     name_uz: Norin tumani
     name_oz: Норин тумани
     name_ru: Нарынский район
+    name_en: Norin district
     region: 7
 - model: uzbekistan.district
   pk: 102
@@ -613,6 +700,7 @@
     name_uz: Pop tumani
     name_oz: Поп тумани
     name_ru: Папский район
+    name_en: Pop district
     region: 7
 - model: uzbekistan.district
   pk: 103
@@ -620,6 +708,7 @@
     name_uz: To‘raqo‘rg‘on tumani
     name_oz: Тўрақўрғон тумани
     name_ru: Туракурганский район
+    name_en: Toragorgan district
     region: 7
 - model: uzbekistan.district
   pk: 104
@@ -627,6 +716,7 @@
     name_uz: Uychi tumani
     name_oz: Уйчи тумани
     name_ru: Уйчинский район
+    name_en: Uychi district
     region: 7
 - model: uzbekistan.district
   pk: 105
@@ -634,6 +724,7 @@
     name_uz: Uchqo‘rg‘on tumani
     name_oz: Учқўрғон тумани
     name_ru: Учкурганский район
+    name_en: Uchkurgan district
     region: 7
 - model: uzbekistan.district
   pk: 106
@@ -641,6 +732,7 @@
     name_uz: Chortoq tumani
     name_oz: Чортоқ тумани
     name_ru: Чартакский район
+    name_en: Chortok district
     region: 7
 - model: uzbekistan.district
   pk: 107
@@ -648,6 +740,7 @@
     name_uz: Chust tumani
     name_oz: Чуст тумани
     name_ru: Чустский район
+    name_en: Chust district
     region: 7
 - model: uzbekistan.district
   pk: 108
@@ -655,6 +748,7 @@
     name_uz: Yangiqo‘rg‘on tumani
     name_oz: Янгиқўрғон тумани
     name_ru: Янгикурганский район
+    name_en: Yangikurgan district
     region: 7
 - model: uzbekistan.district
   pk: 109
@@ -662,6 +756,7 @@
     name_uz: Bulung‘ur tumani
     name_oz: Булунғур тумани
     name_ru: Булунгурский район
+    name_en: Bulungur district
     region: 8
 - model: uzbekistan.district
   pk: 110
@@ -669,6 +764,7 @@
     name_uz: Jomboy tumani
     name_oz: Жомбой тумани
     name_ru: Джамбайский район
+    name_en: Jomboy district
     region: 8
 - model: uzbekistan.district
   pk: 111
@@ -676,6 +772,7 @@
     name_uz: Ishtixon tumani
     name_oz: Иштихон тумани
     name_ru: Иштыханский район
+    name_en: Ishtikhan district
     region: 8
 - model: uzbekistan.district
   pk: 112
@@ -683,6 +780,7 @@
     name_uz: Kattaqo‘rg‘on tumani
     name_oz: Каттақўрғон тумани
     name_ru: Каттакурганский район
+    name_en: Kattakorgan district
     region: 8
 - model: uzbekistan.district
   pk: 113
@@ -690,6 +788,7 @@
     name_uz: Kattaqo‘rg‘on shahri
     name_oz: Каттақўрғон шаҳри
     name_ru: город Каттакурган
+    name_en: Kattakorgan city
     region: 8
 - model: uzbekistan.district
   pk: 114
@@ -697,6 +796,7 @@
     name_uz: Qo‘shrabot tumani
     name_oz: Қўшработ тумани
     name_ru: Кошрабадский район
+    name_en: Koshrabot district
     region: 8
 - model: uzbekistan.district
   pk: 115
@@ -704,6 +804,7 @@
     name_uz: Narpay tumani
     name_oz: Нарпай тумани
     name_ru: Нарпайский район
+    name_en: Narpay district
     region: 8
 - model: uzbekistan.district
   pk: 116
@@ -711,6 +812,7 @@
     name_uz: Nurabod tumani
     name_oz: Нурабод тумани
     name_ru: Нурабадский район
+    name_en: Nurabad district
     region: 8
 - model: uzbekistan.district
   pk: 117
@@ -718,6 +820,7 @@
     name_uz: Oqdaryo tumani
     name_oz: Оқдарё тумани
     name_ru: Акдарьинский район
+    name_en: Akdarya district
     region: 8
 - model: uzbekistan.district
   pk: 118
@@ -725,6 +828,7 @@
     name_uz: Payariq tumani
     name_oz: Паяриқ тумани
     name_ru: Пайарыкский район
+    name_en: Payariq district
     region: 8
 - model: uzbekistan.district
   pk: 119
@@ -732,6 +836,7 @@
     name_uz: Pastarg‘om tumani
     name_oz: Пастарғом тумани
     name_ru: Пастдаргомский район
+    name_en: Pastargom district
     region: 8
 - model: uzbekistan.district
   pk: 120
@@ -739,6 +844,7 @@
     name_uz: Paxtachi tumani
     name_oz: Пахтачи тумани
     name_ru: Пахтачийский район
+    name_en: Pakhtachi district
     region: 8
 - model: uzbekistan.district
   pk: 121
@@ -746,6 +852,7 @@
     name_uz: Samarqand tumani
     name_oz: Самарқанд тумани
     name_ru: Самаркандский район
+    name_en: Samarkand district
     region: 8
 - model: uzbekistan.district
   pk: 122
@@ -753,6 +860,7 @@
     name_uz: Samarqand shahri
     name_oz: Самарқанд шаҳри
     name_ru: город Самарканд
+    name_en: Samarkand city
     region: 8
 - model: uzbekistan.district
   pk: 123
@@ -760,6 +868,7 @@
     name_uz: Toyloq tumani
     name_oz: Тойлоқ тумани
     name_ru: Тайлакский район
+    name_en: Toylok district
     region: 8
 - model: uzbekistan.district
   pk: 124
@@ -767,6 +876,7 @@
     name_uz: Urgut tumani
     name_oz: Ургут тумани
     name_ru: Ургутский район
+    name_en: Urgut district
     region: 8
 - model: uzbekistan.district
   pk: 125
@@ -774,6 +884,7 @@
     name_uz: Angor tumani
     name_oz: Ангор тумани
     name_ru: Ангорский район
+    name_en: Angor district
     region: 9
 - model: uzbekistan.district
   pk: 126
@@ -781,6 +892,7 @@
     name_uz: Boysun tumani
     name_oz: Бойсун тумани
     name_ru: Байсунский район
+    name_en: Boysun District
     region: 9
 - model: uzbekistan.district
   pk: 127
@@ -788,6 +900,7 @@
     name_uz: Denov tumani
     name_oz: Денов тумани
     name_ru: Денауский район
+    name_en: Denov district
     region: 9
 - model: uzbekistan.district
   pk: 128
@@ -795,6 +908,7 @@
     name_uz: Jarqo‘rg‘on tumani
     name_oz: Жарқўрғон тумани
     name_ru: Джаркурганский район
+    name_en: Jarkurgan district
     region: 9
 - model: uzbekistan.district
   pk: 129
@@ -802,6 +916,7 @@
     name_uz: Qiziriq tumani
     name_oz: Қизириқ тумани
     name_ru: Кизирикский район
+    name_en: Kiziriq district
     region: 9
 - model: uzbekistan.district
   pk: 130
@@ -809,6 +924,7 @@
     name_uz: Qo‘mqo‘rg‘on tumani
     name_oz: Қўмқўрғон тумани
     name_ru: Кумкурганский район
+    name_en: Komkurgan district
     region: 9
 - model: uzbekistan.district
   pk: 131
@@ -816,6 +932,7 @@
     name_uz: Muzrabot tumani
     name_oz: Музработ тумани
     name_ru: Музрабадский район
+    name_en: Muzrabot district
     region: 9
 - model: uzbekistan.district
   pk: 132
@@ -823,6 +940,7 @@
     name_uz: Oltinsoy tumani
     name_oz: Олтинсой тумани
     name_ru: Алтынсайский район
+    name_en: Altinsoy district
     region: 9
 - model: uzbekistan.district
   pk: 133
@@ -830,6 +948,7 @@
     name_uz: Sariosiyo tumani
     name_oz: Сариосиё тумани
     name_ru: Сариасийский район
+    name_en: Sariosia district
     region: 9
 - model: uzbekistan.district
   pk: 134
@@ -837,6 +956,7 @@
     name_uz: Termiz tumani
     name_oz: Термиз тумани
     name_ru: Термезский район
+    name_en: Termiz district
     region: 9
 - model: uzbekistan.district
   pk: 135
@@ -844,6 +964,7 @@
     name_uz: Termiz shahri
     name_oz: Термиз шаҳри
     name_ru: город Термез
+    name_en: Termiz city
     region: 9
 - model: uzbekistan.district
   pk: 136
@@ -851,6 +972,7 @@
     name_uz: Uzun tumani
     name_oz: Узун тумани
     name_ru: Узунский район
+    name_en: Uzun district
     region: 9
 - model: uzbekistan.district
   pk: 137
@@ -858,6 +980,7 @@
     name_uz: Sherobod tumani
     name_oz: Шеробод тумани
     name_ru: Шерабадский район
+    name_en: Sherabad district
     region: 9
 - model: uzbekistan.district
   pk: 138
@@ -865,6 +988,7 @@
     name_uz: Sho‘rchi tumani
     name_oz: Шўрчи тумани
     name_ru: Шурчинский район
+    name_en: Shorchi district
     region: 9
 - model: uzbekistan.district
   pk: 139
@@ -872,6 +996,7 @@
     name_uz: Boyovut tumani
     name_oz: Боёвут тумани
     name_ru: Баяутский район
+    name_en: Boyovut district
     region: 10
 - model: uzbekistan.district
   pk: 140
@@ -879,6 +1004,7 @@
     name_uz: Guliston tumani
     name_oz: Гулистон тумани
     name_ru: Гулистанский район
+    name_en: Gulistan district
     region: 10
 - model: uzbekistan.district
   pk: 141
@@ -886,6 +1012,7 @@
     name_uz: Guliston shahri
     name_oz: Гулистон шаҳри
     name_ru: город Гулистан
+    name_en: Gulistan city
     region: 10
 - model: uzbekistan.district
   pk: 142
@@ -893,6 +1020,7 @@
     name_uz: Mirzaobod tumani
     name_oz: Мирзаобод тумани
     name_ru: Мирзаабадский район
+    name_en: Mirzaabad district
     region: 10
 - model: uzbekistan.district
   pk: 143
@@ -900,6 +1028,7 @@
     name_uz: Oqoltin tumani
     name_oz: Оқолтин тумани
     name_ru: Акалтынский район
+    name_en: Aqoltin district
     region: 10
 - model: uzbekistan.district
   pk: 144
@@ -907,6 +1036,7 @@
     name_uz: Sayxunobod tumani
     name_oz: Сайхунобод тумани
     name_ru: Сайхунабадский район
+    name_en: Saykhunabad district
     region: 10
 - model: uzbekistan.district
   pk: 145
@@ -914,6 +1044,7 @@
     name_uz: Sardoba tumani
     name_oz: Сардоба тумани
     name_ru: Сардобский район
+    name_en: Sardoba district
     region: 10
 - model: uzbekistan.district
   pk: 146
@@ -921,6 +1052,7 @@
     name_uz: Sirdaryo tumani
     name_oz: Сирдарё тумани
     name_ru: Сырдарьинский район
+    name_en: Syrdarya district
     region: 10
 - model: uzbekistan.district
   pk: 147
@@ -928,6 +1060,7 @@
     name_uz: Xavos tumani
     name_oz: Хавос тумани
     name_ru: Хавастский район
+    name_en: Khavos district
     region: 10
 - model: uzbekistan.district
   pk: 148
@@ -935,6 +1068,7 @@
     name_uz: Shirin shahri
     name_oz: Ширин шаҳри
     name_ru: город Ширин
+    name_en: Shirin city
     region: 10
 - model: uzbekistan.district
   pk: 149
@@ -942,6 +1076,7 @@
     name_uz: Yangiyer shahri
     name_oz: Янгиер шаҳри
     name_ru: город Янгиер
+    name_en: Yangiye city
     region: 10
 - model: uzbekistan.district
   pk: 150
@@ -949,6 +1084,7 @@
     name_uz: Angiren shahri
     name_oz: Ангирен шаҳри
     name_ru: город Ангрен
+    name_en: Angiren city
     region: 11
 - model: uzbekistan.district
   pk: 151
@@ -956,6 +1092,7 @@
     name_uz: Bekabod tumani
     name_oz: Бекабод тумани
     name_ru: Бекабадский район
+    name_en: Bekabad district
     region: 11
 - model: uzbekistan.district
   pk: 152
@@ -963,6 +1100,7 @@
     name_uz: Bekabod shahri
     name_oz: Бекабод шаҳри
     name_ru: город Бекабад
+    name_en: Bekabad city
     region: 11
 - model: uzbekistan.district
   pk: 153
@@ -970,6 +1108,7 @@
     name_uz: Bo‘ka tumani
     name_oz: Бўка тумани
     name_ru: Букинский район
+    name_en: Boka district
     region: 11
 - model: uzbekistan.district
   pk: 154
@@ -977,6 +1116,7 @@
     name_uz: Bo‘stonliq tumani
     name_oz: Бўстонлиқ тумани
     name_ru: Бостанлыкский район
+    name_en: Bostonliq district
     region: 11
 - model: uzbekistan.district
   pk: 155
@@ -984,6 +1124,7 @@
     name_uz: Zangiota tumani
     name_oz: Зангиота тумани
     name_ru: Зангиатинский район
+    name_en: Zangiota District
     region: 11
 - model: uzbekistan.district
   pk: 156
@@ -991,6 +1132,7 @@
     name_uz: Qibray tumani
     name_oz: Қибрай тумани
     name_ru: Кибрайский район
+    name_en: Qibray district
     region: 11
 - model: uzbekistan.district
   pk: 157
@@ -998,6 +1140,7 @@
     name_uz: Quyichirchiq tumani
     name_oz: Қуйичирчиқ тумани
     name_ru: Куйичирчикский район
+    name_en: Kuychichik district
     region: 11
 - model: uzbekistan.district
   pk: 158
@@ -1005,6 +1148,7 @@
     name_uz: Oqqo‘rg‘on tumani
     name_oz: Оққўрғон тумани
     name_ru: Аккурганский район
+    name_en: Akkurgan district
     region: 11
 - model: uzbekistan.district
   pk: 159
@@ -1012,6 +1156,7 @@
     name_uz: Olmaliq shahri
     name_oz: Олмалиқ шаҳри
     name_ru: город Алмалык
+    name_en: Almalyk city
     region: 11
 - model: uzbekistan.district
   pk: 160
@@ -1019,6 +1164,7 @@
     name_uz: Ohangaron tumani
     name_oz: Оҳангарон тумани
     name_ru: Ахангаранский район
+    name_en: Ohangaron district
     region: 11
 - model: uzbekistan.district
   pk: 161
@@ -1026,6 +1172,7 @@
     name_uz: Parkent tumani
     name_oz: Паркент тумани
     name_ru: Паркентский район
+    name_en: Parkent district
     region: 11
 - model: uzbekistan.district
   pk: 162
@@ -1033,6 +1180,7 @@
     name_uz: Piskent tumani
     name_oz: Пискент тумани
     name_ru: Пскентский район
+    name_en: Piskent district
     region: 11
 - model: uzbekistan.district
   pk: 163
@@ -1040,6 +1188,7 @@
     name_uz: O‘rtachirchiq tumani
     name_oz: Ўртачирчиқ тумани
     name_ru: Уртачирчикский район
+    name_en: Ortachirchik district
     region: 11
 - model: uzbekistan.district
   pk: 164
@@ -1047,6 +1196,7 @@
     name_uz: Chinoz tumani
     name_oz: Чиноз тумани
     name_ru: Чиназский район
+    name_en: Chinoz district
     region: 11
 - model: uzbekistan.district
   pk: 165
@@ -1054,6 +1204,7 @@
     name_uz: Chirchiq shahri
     name_oz: Чирчиқ шаҳри
     name_ru: город Чирчик
+    name_en: Chirchik city
     region: 11
 - model: uzbekistan.district
   pk: 166
@@ -1061,6 +1212,7 @@
     name_uz: Yuqorichirchiq tumani
     name_oz: Юқоричирчиқ тумани
     name_ru: Юкоричирчикский район
+    name_en: Ukurchirchik district
     region: 11
 - model: uzbekistan.district
   pk: 167
@@ -1068,6 +1220,7 @@
     name_uz: Yangiyo‘l tumani
     name_oz: Янгийўл тумани
     name_ru: Янгиюльский район
+    name_en: Yangiyol district
     region: 11
 - model: uzbekistan.district
   pk: 168
@@ -1075,6 +1228,7 @@
     name_uz: Beshariq tumani
     name_oz: Бешариқ тумани
     name_ru: Бешарыкский район
+    name_en: Beshariq district
     region: 12
 - model: uzbekistan.district
   pk: 169
@@ -1082,6 +1236,7 @@
     name_uz: Bog‘dod tumani
     name_oz: Боғдод тумани
     name_ru: Багдадский район
+    name_en: Baghdad district
     region: 12
 - model: uzbekistan.district
   pk: 170
@@ -1089,6 +1244,7 @@
     name_uz: Buvayda tumani
     name_oz: Бувайда тумани
     name_ru: Бувайдинский район
+    name_en: Buvaida district
     region: 12
 - model: uzbekistan.district
   pk: 171
@@ -1096,6 +1252,7 @@
     name_uz: Dang‘ara tumani
     name_oz: Данғара тумани
     name_ru: Дангаринский район
+    name_en: Dangara district
     region: 12
 - model: uzbekistan.district
   pk: 172
@@ -1103,6 +1260,7 @@
     name_uz: Yozyovon tumani
     name_oz: Ёзёвон тумани
     name_ru: Язъяванский район
+    name_en: Yozhiovon district
     region: 12
 - model: uzbekistan.district
   pk: 173
@@ -1110,6 +1268,7 @@
     name_uz: Quva tumani
     name_oz: Қува тумани
     name_ru: Кувинский район
+    name_en: Kuva district
     region: 12
 - model: uzbekistan.district
   pk: 174
@@ -1117,6 +1276,7 @@
     name_uz: Quvasoy shahri
     name_oz: Қувасой шаҳри
     name_ru: город Кувасай
+    name_en: Kuvasoy city
     region: 12
 - model: uzbekistan.district
   pk: 175
@@ -1124,6 +1284,7 @@
     name_uz: Qo‘qon shahri
     name_oz: Қўқон шаҳри
     name_ru: город Коканд
+    name_en: Kokan city
     region: 12
 - model: uzbekistan.district
   pk: 176
@@ -1131,6 +1292,7 @@
     name_uz: Qo‘shtepa tumani
     name_oz: Қўштепа тумани
     name_ru: Куштепинский район
+    name_en: Koshtepa district
     region: 12
 - model: uzbekistan.district
   pk: 177
@@ -1138,6 +1300,7 @@
     name_uz: Marg‘ilon shahri
     name_oz: Марғилон шаҳри
     name_ru: город Маргилан
+    name_en: Margilan city
     region: 12
 - model: uzbekistan.district
   pk: 178
@@ -1145,6 +1308,7 @@
     name_uz: Oltiariq tumani
     name_oz: Олтиариқ тумани
     name_ru: Алтыарыкский район
+    name_en: Altiariq district
     region: 12
 - model: uzbekistan.district
   pk: 179
@@ -1152,6 +1316,7 @@
     name_uz: Rishton tumani
     name_oz: Риштон тумани
     name_ru: Риштанский район
+    name_en: Rishton district
     region: 12
 - model: uzbekistan.district
   pk: 180
@@ -1159,6 +1324,7 @@
     name_uz: So‘x tumani
     name_oz: Сўх тумани
     name_ru: Сохский район
+    name_en: Sokh district
     region: 12
 - model: uzbekistan.district
   pk: 181
@@ -1166,6 +1332,7 @@
     name_uz: Toshloq tumani
     name_oz: Тошлоқ тумани
     name_ru: Ташлакский район
+    name_en: Toshloq district
     region: 12
 - model: uzbekistan.district
   pk: 182
@@ -1173,6 +1340,7 @@
     name_uz: Uchko‘prik tumani
     name_oz: Учкўприк тумани
     name_ru: Учкуприкский район
+    name_en: Uchkoprik district
     region: 12
 - model: uzbekistan.district
   pk: 183
@@ -1180,6 +1348,7 @@
     name_uz: O‘zbekiston tumani
     name_oz: Ўзбекистон тумани
     name_ru: Узбекистанский район
+    name_en: Uzbekistan district
     region: 12
 - model: uzbekistan.district
   pk: 184
@@ -1187,6 +1356,7 @@
     name_uz: Farg‘ona tumani
     name_oz: Фарғона тумани
     name_ru: Ферганский район
+    name_en: Fergana district
     region: 12
 - model: uzbekistan.district
   pk: 185
@@ -1194,6 +1364,7 @@
     name_uz: Farg‘ona shahri
     name_oz: Фарғона шаҳри
     name_ru: город Фергана
+    name_en: Fergana city
     region: 12
 - model: uzbekistan.district
   pk: 186
@@ -1201,6 +1372,7 @@
     name_uz: Furqat tumani
     name_oz: Фурқат тумани
     name_ru: Фуркатский район
+    name_en: Furqat district
     region: 12
 - model: uzbekistan.district
   pk: 187
@@ -1208,6 +1380,7 @@
     name_uz: Bog‘ot tumani
     name_oz: Боғот тумани
     name_ru: Багатский район
+    name_en: Bogot district
     region: 13
 - model: uzbekistan.district
   pk: 188
@@ -1215,6 +1388,7 @@
     name_uz: Gurlan tumani
     name_oz: Гурлан тумани
     name_ru: Гурленский район
+    name_en: Gurlan district
     region: 13
 - model: uzbekistan.district
   pk: 189
@@ -1222,6 +1396,7 @@
     name_uz: Qo‘shko‘pir tumani
     name_oz: Қўшкўпир тумани
     name_ru: Кошкупырский район
+    name_en: Koshkopir district
     region: 13
 - model: uzbekistan.district
   pk: 190
@@ -1229,6 +1404,7 @@
     name_uz: Urganch tumani
     name_oz: Урганч тумани
     name_ru: Ургенчский район
+    name_en: Urganch district
     region: 13
 - model: uzbekistan.district
   pk: 191
@@ -1236,6 +1412,7 @@
     name_uz: Urganch shahri
     name_oz: Урганч шаҳри
     name_ru: город Ургенч
+    name_en: Urganch city
     region: 13
 - model: uzbekistan.district
   pk: 192
@@ -1243,6 +1420,7 @@
     name_uz: Xiva tumani
     name_oz: Хива тумани
     name_ru: Хивинский район
+    name_en: Khiva district
     region: 13
 - model: uzbekistan.district
   pk: 193
@@ -1250,6 +1428,7 @@
     name_uz: Xazarasp tumani
     name_oz: Хазарасп тумани
     name_ru: Хазараспский район
+    name_en: Khazarasp district
     region: 13
 - model: uzbekistan.district
   pk: 194
@@ -1257,6 +1436,7 @@
     name_uz: Xonqa tumani
     name_oz: Хонқа тумани
     name_ru: Ханкинский район
+    name_en: Khanka district
     region: 13
 - model: uzbekistan.district
   pk: 195
@@ -1264,6 +1444,7 @@
     name_uz: Shavot tumani
     name_oz: Шавот тумани
     name_ru: Шаватский район
+    name_en: Shavat district
     region: 13
 - model: uzbekistan.district
   pk: 196
@@ -1271,6 +1452,7 @@
     name_uz: Yangiariq tumani
     name_oz: Янгиариқ тумани
     name_ru: Янгиарыкский район
+    name_en: Yangariq district
     region: 13
 - model: uzbekistan.district
   pk: 197
@@ -1278,6 +1460,7 @@
     name_uz: Yangibozor tumani
     name_oz: Янгибозор тумани
     name_ru: Янгибазарский район
+    name_en: Yangibozor district
     region: 13
 - model: uzbekistan.district
   pk: 198
@@ -1285,6 +1468,7 @@
     name_uz: Bektimer tumani
     name_oz: Бектимер тумани
     name_ru: Бектемирский район
+    name_en: Bektimer district
     region: 14
 - model: uzbekistan.district
   pk: 199
@@ -1292,6 +1476,7 @@
     name_uz: Mirzo Ulug'bek tumani
     name_oz: Мирзо-Улугбекский район
     name_ru: Мирзо-Улугбекский район
+    name_en: Mirzo Ulugbek district
     region: 14
 - model: uzbekistan.district
   pk: 200
@@ -1299,6 +1484,7 @@
     name_uz: Mirobod tumani
     name_oz: Миробод тумани
     name_ru: Мирабадский район
+    name_en: Mirabad district
     region: 14
 - model: uzbekistan.district
   pk: 201
@@ -1306,6 +1492,7 @@
     name_uz: Olmazor tumani
     name_oz: Олмазор тумани
     name_ru: Алмазарский район
+    name_en: Almazor district
     region: 14
 - model: uzbekistan.district
   pk: 202
@@ -1313,6 +1500,7 @@
     name_uz: Sirg'ali tumani
     name_oz: Сиргали тумани
     name_ru: Сергелийский район
+    name_en: Sirgali district
     region: 14
 - model: uzbekistan.district
   pk: 203
@@ -1320,6 +1508,7 @@
     name_uz: Uchtepa tumani
     name_oz: Учтепа тумани
     name_ru: Учтепинский район
+    name_en: Uchtepa district
     region: 14
 - model: uzbekistan.district
   pk: 204
@@ -1327,6 +1516,7 @@
     name_uz: Yashnobod tumani
     name_oz: Яшнобод тумани
     name_ru: Яшнободский район
+    name_en: Yashnabad district
     region: 14
 - model: uzbekistan.district
   pk: 205
@@ -1334,6 +1524,7 @@
     name_uz: Chilonzor tumani
     name_oz: Чилонзор тумани
     name_ru: Чиланзарский район
+    name_en: Chilonzor district
     region: 14
 - model: uzbekistan.district
   pk: 206
@@ -1341,6 +1532,7 @@
     name_uz: Shayxontohur tumani
     name_oz: Шайхонтоҳур тумани
     name_ru: Шайхантахурский район
+    name_en: Shaikhontohur district
     region: 14
 - model: uzbekistan.district
   pk: 207
@@ -1348,6 +1540,7 @@
     name_uz: Yunusobod tumani
     name_oz: Юнусобод тумани
     name_ru: Юнусабадский район
+    name_en: Yunusabad district
     region: 14
 - model: uzbekistan.district
   pk: 208
@@ -1355,6 +1548,7 @@
     name_uz: Yakkasaroy tumani
     name_oz: Яккасарой тумани
     name_ru: Яккасарайский район
+    name_en: Yakkasaray district
     region: 14
 - model: uzbekistan.district
   pk: 209
@@ -1362,6 +1556,7 @@
     name_uz: Taxiatosh shahri
     name_oz: Тахиатош шаҳри
     name_ru: Тахиаташский район
+    name_en: Takhiatosh city
     region: 1
 - model: uzbekistan.district
   pk: 210
@@ -1369,6 +1564,7 @@
     name_uz: Asaka shahri
     name_oz: Асака шаҳри
     name_ru: Асакинский район
+    name_en: Asaka city
     region: 2
 - model: uzbekistan.district
   pk: 211
@@ -1376,6 +1572,7 @@
     name_uz: Bandixon tumani
     name_oz: Бандихон тумани
     name_ru: Бандиханский район
+    name_en: Bandikhan district
     region: 9
 - model: uzbekistan.district
   pk: 212
@@ -1383,6 +1580,7 @@
     name_uz: Ohangaron shahri
     name_oz: Оҳангарон шаҳри
     name_ru: город Ахангаранский
+    name_en: Ohangaron city
     region: 11
 - model: uzbekistan.district
   pk: 213
@@ -1390,6 +1588,7 @@
     name_uz: Yangiyo‘l shahri
     name_oz: Янгийўл шаҳри
     name_ru: город Янгиюль
+    name_en: Yangyol city
     region: 11
 - model: uzbekistan.district
   pk: 215
@@ -1397,6 +1596,7 @@
     name_uz: Toshkent tumani
     name_oz: Тошкент тумани
     name_ru: Ташкентский район
+    name_en: Tashkent district
     region: 11
 - model: uzbekistan.district
   pk: 216
@@ -1404,6 +1604,7 @@
     name_uz: Xiva shahri
     name_oz: Хива шаҳри
     name_ru: город Хива
+    name_en: The city of Khiva
     region: 13
 - model: uzbekistan.district
   pk: 217
@@ -1411,6 +1612,7 @@
     name_uz: Do'stlik shahri
     name_oz: Дўстлик шаҳри
     name_ru: Дўстлик
+    name_en: Dostlik city
     region: 13
 - model: uzbekistan.district
   pk: 218
@@ -1418,6 +1620,7 @@
     name_uz: Yangihayot tumani
     name_oz: Янгиҳаёт тумани
     name_ru: Янгихаётский район
+    name_en: Yangihayat district
     region: 14
 - model: uzbekistan.district
   pk: 219
@@ -1425,13 +1628,15 @@
     name_uz: Tuproqqala tumani
     name_oz: Тупроққалъа тумани
     name_ru: Тироккальский район
+    name_en: Tuparkkala district
     region: 13
 - model: uzbekistan.district
   pk: 220
   fields:
     name_uz: Davlatobod tumani
     name_oz: Давлатобод тумани
-    name_ru: Давлатабадский район \r\n
+    name_ru: Давлатабадский район
+    name_en: Davlatabad district
     region: 7
 - model: uzbekistan.district
   pk: 221
@@ -1439,6 +1644,7 @@
     name_uz: G‘ozg‘on shahri
     name_oz: Ғозғон шаҳри
     name_ru: Город Гозган
+    name_en: Ghazgon city
     region: 6
 - model: uzbekistan.district
   pk: 222
@@ -1446,6 +1652,7 @@
     name_uz: Bo‘zatov tumani
     name_oz: Бўзатов тумани
     name_ru: Бозатовский район
+    name_en: Bozatov district
     region: 1
 - model: uzbekistan.district
   pk: 224
@@ -1453,6 +1660,7 @@
     name_uz: Shahrisabz shahri
     name_oz: Шаҳрисабз шаҳри
     name_ru: Город Шахрисабз
+    name_en: Shahrisabz city
     region: 5
 - model: uzbekistan.district
   pk: 225
@@ -1460,4 +1668,5 @@
     name_uz: Ko‘kdala tumani
     name_oz: Кўкдала тумани
     name_ru: Кукдалинский район
+    name_en: Kokdala district
     region: 5
