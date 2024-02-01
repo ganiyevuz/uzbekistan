@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'uzbekistan',
-    'import_export',
+    # 'import_export',
     'rest_framework',
     'django_filters'
 ]
