@@ -1,85 +1,190 @@
-# 🌍 Regions, Districts &amp; Quarters Database
+# 🌍 Django Uzbekistan
 
 [![PyPI Version](https://img.shields.io/pypi/v/uzbekistan)](https://pypi.org/project/uzbekistan/)
 [![Django Version](https://img.shields.io/badge/Django-5.x-green.svg)](https://www.djangoproject.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Full Database of Uzbekistan Regions, Districts &amp; Quarters with
-Latin, Cyrillic and Russian versions.
+A comprehensive Django app providing Uzbekistan's administrative divisions database with multi-language support.
 
-## Insights
+## 📊 Database Overview
 
-Total Regions : 14 <br>
-Total Regions/Cities : 205 <br>
-Total Towns/Districts : 2,183+ <br>
+- **Regions**: 14
+- **Regions/Cities**: 205
+- **Towns/Districts**: 2,183+
 
-Last Updated On : 5th June 2022
+## ✨ Features
 
-## Installation
+- Complete database of Uzbekistan's administrative divisions
+- Multi-language support:
+  - Uzbek (Latin)
+  - Uzbek (Cyrillic)
+  - Russian
+  - English
+- REST API endpoints
+- Configurable model activation
+- Built-in caching
+- Rate limiting protection
+- Django Admin integration
 
-You can install your app via pip:
+## 🚀 Quick Start
 
-```shell
+### Installation
+
+```bash
 pip install uzbekistan
 ```
 
-Add it to your Django project's INSTALLED_APPS:
+### Basic Setup
 
-```python3
-
+1. Add to `INSTALLED_APPS`:
+```python
 INSTALLED_APPS = [
-    # ...
+    ...
     'uzbekistan',
 ]
 ```
 
-Configure views and models to which feature you want to use in your project.
-You can enable/disable models and views for regions, districts and villages.
-
-```python3
+2. Configure in `settings.py`:
+```python
 UZBEKISTAN = {
     'models': {
-        'region': True,
-        'district': True,
-        'village': False,
+        'region': True,      # Enable Region model
+        'district': True,    # Enable District model
+        'village': True,     # Enable Village model
     },
     'views': {
-        'region': True,
-        'district': True,
-        'village': False,
+        'region': True,      # Enable RegionListAPIView
+        'district': True,    # Enable DistrictListAPIView
+        'village': True,     # Enable VillageListAPIView
+    },
+    'cache': {
+        'enabled': True,     # Enable caching
+        'timeout': 3600,     # Cache timeout (1 hour)
+    },
+    'throttling': {
+        'enabled': True,     # Enable rate limiting
+        'rate': '100/hour',  # Rate limit per user
     }
 }
 ```
 
-Include URL Configuration in the Project's urls.py
-
-```python3
+3. Add URLs:
+```python
 urlpatterns = [
-    # ...
-    path('', include('uzbekistan.urls'), name='uzbekistan'),
+    path('', include('uzbekistan.urls')),
 ]
 ```
 
-Load the data into your database
-
-```shell
-python3 manage.py loaddata regions
-python3 manage.py loaddata districts
+4. Run migrations:
+```bash
+python manage.py makemigrations
+python manage.py migrate
 ```
 
-## Change logs
-
-A new version available that includes many updates.
-
-- Added **Villages** to the database
-- Added Dynamic **URLs** for all models
-- Added Dynamic **Views** for all models
-- Added **Models** to Django Admin panel
-- English translations added to **Region**
-
-## Suggestions / Feedbacks
-
-```
-Suggestions & Feedbacks are Most Welcome
+5. Load data:
+```bash
+python manage.py loaddata regions
+python manage.py loaddata districts
 ```
 
-That's all Folks. Enjoy😊!
+## 🔌 API Endpoints
+
+### Available Endpoints
+
+| Endpoint | URL Pattern | Name | Description |
+|----------|-------------|------|-------------|
+| Regions | `/regions` | `region-list` | List all regions |
+| Districts | `/districts/<int:region_id>` | `district-list` | List districts for a specific region |
+| Villages | `/villages/<int:district_id>` | `village-list` | List villages for a specific district |
+
+### Example Usage
+
+```python
+# Get all regions
+GET /regions
+
+# Get districts for a specific region
+GET /districts/1  # where 1 is the region_id
+
+# Get villages for a specific district
+GET /villages/1  # where 1 is the district_id
+```
+
+## 🛠️ Development
+
+### Setup
+
+```bash
+# Clone repository
+git clone https://github.com/ganiyevuz/uzbekistan.git
+cd uzbekistan
+
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -e ".[dev]"
+```
+
+### Development Tools
+
+- **Testing**: `pytest`
+- **Code Style**: 
+  ```bash
+  black --check uzbekistan/
+  ```
+
+## 📦 Release Process
+
+### Automated Release
+
+1. Update version:
+```bash
+python scripts/update_version.py 2.7.3
+```
+
+2. Create and push tag:
+```bash
+git tag v2.7.3
+git push origin v2.7.3
+```
+
+GitHub Actions will automatically:
+- Run tests
+- Build package
+- Publish to PyPI
+
+### Manual Release
+
+```bash
+# Build package
+python -m build
+
+# Check package
+twine check dist/*
+
+# Upload to PyPI
+twine upload dist/*
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
+## 👤 Author
+
+Jakhongir Ganiev - [@ganiyevuz](https://github.com/ganiyevuz)
+
+## 🙏 Acknowledgments
+
+- All contributors who helped improve this package
+- Django and DRF communities for their excellent tools and documentation
