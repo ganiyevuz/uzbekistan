@@ -29,8 +29,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "uzbekistan.urls"
-
+ROOT_URLCONF = 'uzbekistan.tests.urls'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -39,7 +38,6 @@ DATABASES = {
 }
 
 REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
@@ -48,11 +46,10 @@ REST_FRAMEWORK = {
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
-USE_TZ = False  # Explicitly set to False to maintain current behavior
 
 # Static files
 STATIC_URL = "/static/"
-STATIC_ROOT = "staticfiles"
+STATIC_ROOT = "static"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -68,12 +65,8 @@ UZBEKISTAN = {
         "district": True,
         "village": True,
     },
-    "cache": {
-        "enabled": False,
-        "timeout": 3600,
-    },
-    "throttling": {
-        "enabled": False,
-        "rate": "100/hour",
-    },
+    'cache': {
+        'enabled': False,
+        'timeout': 3600,
+    }
 }
