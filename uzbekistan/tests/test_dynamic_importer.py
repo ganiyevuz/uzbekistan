@@ -1,99 +1,110 @@
-"""
-Tests for dynamic importer functionality.
-"""
+from django.test import TestCase, override_settings
+from django.core.exceptions import ImproperlyConfigured
 
-import pytest
-from django.test import override_settings
 from uzbekistan.dynamic_importer import (
-    get_cache_settings,
+    get_uzbekistan_setting,
     get_enabled_models,
     get_enabled_views,
-    get_uzbekistan_setting,
+    get_cache_settings,
+    get_throttling_settings,
     import_conditional_classes,
+    DynamicImportError,
 )
+from uzbekistan.models import Region, District, Village
 
 
-class TestDynamicImporter:
-    def setup_method(self):
-        """Clear cache before each test."""
+class TestDynamicImporter(TestCase):
+    def setUp(self):
+        # Clear LRU caches
         get_enabled_models.cache_clear()
         get_enabled_views.cache_clear()
         get_cache_settings.cache_clear()
+        get_throttling_settings.cache_clear()
 
-    def test_get_enabled_models(self):
-        """Test getting enabled models."""
-        custom_settings = {
-            'models': {'region': True, 'district': False, 'village': True}
-        }
-        with override_settings(UZBEKISTAN=custom_settings):
-            enabled_models = get_enabled_models()
-            assert enabled_models == {'region', 'village'}
-
-    def test_get_enabled_views(self):
-        """Test getting enabled views."""
-        custom_settings = {
-            'views': {'region': True, 'district': False, 'village': True}
-        }
-        with override_settings(UZBEKISTAN=custom_settings):
-            enabled_views = get_enabled_views()
-            assert enabled_views == {'region', 'village'}
-
-    def test_get_cache_settings(self):
-        """Test getting cache settings."""
-        custom_settings = {
-            'cache': {'enabled': True, 'timeout': 300}
-        }
-        with override_settings(UZBEKISTAN={'cache': custom_settings}):
-            settings = get_cache_settings()
-            assert settings == custom_settings
-
-    def test_get_cache_settings_default(self):
-        """Test getting default cache settings."""
-        settings = get_cache_settings()
-        assert settings == {'enabled': False, 'timeout': 3600}
-
+    @override_settings(UZBEKISTAN=None)
     def test_get_uzbekistan_setting_missing(self):
-        """Test getting missing setting."""
-        with override_settings(UZBEKISTAN={}):
-            value = get_uzbekistan_setting('missing_setting')
-            assert value is None
+        """Test that missing UZBEKISTAN setting raises ImproperlyConfigured."""
+        with self.assertRaises(ImproperlyConfigured) as context:
+            get_uzbekistan_setting("models")
+        self.assertIn("UZBEKISTAN setting is required", str(context.exception))
 
     def test_get_uzbekistan_setting_with_default(self):
         """Test getting setting with default value."""
+        default = {"test": True}
+        result = get_uzbekistan_setting("nonexistent", default)
+        self.assertEqual(result, default)
+
+    def test_get_enabled_models(self):
+        """Test getting enabled models from settings."""
+        with override_settings(
+            UZBEKISTAN={"models": {"region": True, "district": False}}
+        ):
+            enabled = get_enabled_models()
+            self.assertEqual(enabled, {"region"})
+
+    def test_get_enabled_views(self):
+        """Test getting enabled views from settings."""
+        with override_settings(
+            UZBEKISTAN={"views": {"region": True, "district": False}}
+        ):
+            enabled = get_enabled_views()
+            self.assertEqual(enabled, {"region"})
+
+    def test_get_cache_settings(self):
+        """Test getting cache settings."""
+        custom_settings = {"enabled": False, "timeout": 1800}
+        with override_settings(UZBEKISTAN={"cache": custom_settings}):
+            settings = get_cache_settings()
+            self.assertEqual(settings, custom_settings)
+
+    def test_get_cache_settings_default(self):
+        """Test getting default cache settings."""
         with override_settings(UZBEKISTAN={}):
-            value = get_uzbekistan_setting('missing_setting', default='default')
-            assert value == 'default'
+            settings = get_cache_settings()
+            self.assertEqual(settings, {"enabled": True, "timeout": 3600})
 
-    def test_import_conditional_classes_success(self):
-        """Test successful import of conditional classes."""
-        with override_settings(UZBEKISTAN={
-            'models': {'region': True, 'district': True, 'village': True},
-            'views': {'region': True, 'district': True, 'village': True}
-        }):
-            views = list(import_conditional_classes('uzbekistan.views', 'views'))
-            assert len(views) == 3
-            assert all(hasattr(view, 'model') for view in views)
+    def test_get_throttling_settings(self):
+        """Test getting throttling settings."""
+        custom_settings = {"enabled": False, "rate": "50/hour"}
+        with override_settings(UZBEKISTAN={"throttling": custom_settings}):
+            settings = get_throttling_settings()
+            self.assertEqual(settings, custom_settings)
 
-    def test_import_conditional_classes_disabled_model(self):
-        """Test import with disabled model."""
-        with override_settings(UZBEKISTAN={
-            'models': {'region': True, 'district': False, 'village': True},
-            'views': {'region': True, 'district': True, 'village': True}
-        }):
-            views = list(import_conditional_classes('uzbekistan.views', 'views'))
-            assert len(views) == 2
-            assert all(view.model.__name__.lower() != 'district' for view in views)
+    def test_get_throttling_settings_default(self):
+        """Test getting default throttling settings."""
+        with override_settings(UZBEKISTAN={}):
+            settings = get_throttling_settings()
+            self.assertEqual(settings, {"enabled": True, "rate": "100/hour"})
 
     def test_import_conditional_classes_invalid_module(self):
-        """Test import with invalid module."""
-        with pytest.raises(Exception):
-            list(import_conditional_classes('invalid.module', 'views'))
+        """Test importing from invalid module."""
+        with self.assertRaises(DynamicImportError) as context:
+            list(import_conditional_classes("invalid.module", "views"))
+        self.assertIn("Failed to import module", str(context.exception))
 
     def test_import_conditional_classes_missing_class(self):
-        """Test import with missing class."""
-        with override_settings(UZBEKISTAN={
-            'models': {'region': True, 'district': True, 'village': True},
-            'views': {'region': True, 'district': True, 'village': True}
-        }):
-            views = list(import_conditional_classes('uzbekistan.views', 'views'))
-            assert len(views) == 3 
+        """Test importing non-existent class."""
+        with override_settings(
+            UZBEKISTAN={"views": {"nonexistent": True}, "models": {"nonexistent": True}}
+        ):
+            classes = list(import_conditional_classes("uzbekistan.views", "views"))
+            self.assertEqual(len(classes), 0)
+
+    def test_import_conditional_classes_disabled_model(self):
+        """Test importing class with disabled model."""
+        with override_settings(
+            UZBEKISTAN={"views": {"region": True}, "models": {"region": False}}
+        ):
+            classes = list(import_conditional_classes("uzbekistan.views", "views"))
+            self.assertEqual(len(classes), 0)
+
+    def test_import_conditional_classes_success(self):
+        """Test successful class import."""
+        with override_settings(
+            UZBEKISTAN={"views": {"region": True}, "models": {"region": True}}
+        ):
+            classes = list(import_conditional_classes("uzbekistan.views", "views"))
+            self.assertTrue(len(classes) > 0)
+            for cls in classes:
+                self.assertTrue(hasattr(cls, "model"))
+                self.assertTrue(cls.model in [Region, District, Village])

@@ -7,13 +7,11 @@ from django.test import TestCase
 from django.core.exceptions import ValidationError
 from uzbekistan.models import Region, District, Village, check_model
 
+
 class TestRegion(TestCase):
     def setUp(self):
         self.region = Region.objects.create(
-            name_uz="Toshkent",
-            name_oz="Тошкент",
-            name_ru="Ташкент",
-            name_en="Tashkent"
+            name_uz="Toshkent", name_oz="Тошкент", name_ru="Ташкент", name_en="Tashkent"
         )
 
     def test_region_creation(self):
@@ -30,20 +28,18 @@ class TestRegion(TestCase):
         with self.assertRaises(ValidationError):
             region.clean()
 
+
 class TestDistrict(TestCase):
     def setUp(self):
         self.region = Region.objects.create(
-            name_uz="Toshkent",
-            name_oz="Тошкент",
-            name_ru="Ташкент",
-            name_en="Tashkent"
+            name_uz="Toshkent", name_oz="Тошкент", name_ru="Ташкент", name_en="Tashkent"
         )
         self.district = District.objects.create(
             name_uz="Yunusobod",
             name_oz="Юнусобод",
             name_ru="Юнусабад",
             name_en="Yunusabad",
-            region=self.region
+            region=self.region,
         )
 
     def test_district_creation(self):
@@ -64,26 +60,24 @@ class TestDistrict(TestCase):
     def test_district_region_name_property(self):
         self.assertEqual(self.district.region_name, "Toshkent")
 
+
 class TestVillage(TestCase):
     def setUp(self):
         self.region = Region.objects.create(
-            name_uz="Toshkent",
-            name_oz="Тошкент",
-            name_ru="Ташкент",
-            name_en="Tashkent"
+            name_uz="Toshkent", name_oz="Тошкент", name_ru="Ташкент", name_en="Tashkent"
         )
         self.district = District.objects.create(
             name_uz="Yunusobod",
             name_oz="Юнусобод",
             name_ru="Юнусабад",
             name_en="Yunusabad",
-            region=self.region
+            region=self.region,
         )
         self.village = Village.objects.create(
             name_uz="Mirobod",
             name_oz="Миробод",
             name_ru="Мирабад",
-            district=self.district
+            district=self.district,
         )
 
     def test_village_creation(self):
@@ -106,6 +100,7 @@ class TestVillage(TestCase):
     def test_village_region_name_property(self):
         self.assertEqual(self.village.region_name, "Toshkent")
 
+
 class TestModelChecks(TestCase):
     def test_check_model_region(self):
         # Should not raise any exception since Region is enabled
@@ -117,4 +112,4 @@ class TestModelChecks(TestCase):
 
     def test_check_model_village(self):
         # Should not raise any exception since Village and its dependencies (Region, District) are enabled
-        check_model(Village) 
+        check_model(Village)

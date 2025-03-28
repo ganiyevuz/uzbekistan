@@ -22,9 +22,9 @@ class BaseLocationView(ListAPIView):
     select_related_fields: list[str] = []
 
     # URL configuration
-    url_path = ''
-    url_name = ''
-    url_relation = ''
+    url_path = ""
+    url_name = ""
+    url_relation = ""
 
     def get_queryset(self):
         check_model(self.model)
