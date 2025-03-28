@@ -52,7 +52,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.8,<4.0',
     keywords=['django', 'uzbekistan', 'regions', 'districts', 'villages', 'api'],
     project_urls={
         'Documentation': 'https://github.com/ganiyevuz/uzbekistan',
