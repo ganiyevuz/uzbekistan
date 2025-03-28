@@ -13,10 +13,7 @@ class UzbekistanConfig(AppConfig):
             raise Exception("UZBEKISTAN settings is not configured properly.")
 
         enabled_models = settings.UZBEKISTAN["models"]
-        dependencies = {
-            'district': ['region'],
-            'village': ['region', 'district']
-        }
+        dependencies = {"district": ["region"], "village": ["region", "district"]}
 
         # First pass: check dependencies for enabled models
         for model_name, is_enabled in enabled_models.items():
@@ -31,7 +28,7 @@ class UzbekistanConfig(AppConfig):
                         )
 
         # Second pass: mark models as managed/abstract based on settings
-        for model_name in ['region', 'district', 'village']:
+        for model_name in ["region", "district", "village"]:
             model = self.get_model(model_name.title())
             is_enabled = enabled_models.get(model_name, False)
             model._meta.managed = is_enabled

@@ -5,19 +5,29 @@ from django.contrib.admin import ModelAdmin
 from uzbekistan.models import Region, District, Village
 
 if settings.UZBEKISTAN["models"].get("region", False):
+
     @admin.register(Region)
     class RegionAdmin(ModelAdmin):
         list_display = ("name_uz", "name_oz", "name_ru", "name_en")
         search_fields = ("name_uz", "name_oz", "name_ru", "name_en")
         sortable_by = ("name_uz", "name_oz", "name_ru", "name_en")
 
+
 if settings.UZBEKISTAN["models"].get("district", False):
+
     @admin.register(District)
     class DistrictAdmin(ModelAdmin):
         list_display = ("name_uz", "name_oz", "name_ru", "name_en", "get_region_name")
         search_fields = (
-            "name_uz", "name_oz", "name_ru", "name_en", "region__name_uz", 'region__name_oz', "region__name_ru",
-            "region__name_en")
+            "name_uz",
+            "name_oz",
+            "name_ru",
+            "name_en",
+            "region__name_uz",
+            "region__name_oz",
+            "region__name_ru",
+            "region__name_en",
+        )
         sortable_by = ("name_uz", "name_oz", "name_ru", "name_en", "region")
         list_filter = ("region",)
         save_on_top = True
@@ -27,7 +37,9 @@ if settings.UZBEKISTAN["models"].get("district", False):
 
         get_region_name.short_description = "Region"
 
+
 if settings.UZBEKISTAN["models"].get("village", False):
+
     @admin.register(Village)
     class VillageAdmin(ModelAdmin):
         list_display = (
