@@ -2,9 +2,8 @@ from django.core.cache import cache
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
-from rest_framework.throttling import UserRateThrottle
 
-from uzbekistan.dynamic_importer import get_cache_settings, get_throttling_settings
+from uzbekistan.dynamic_importer import get_cache_settings
 from uzbekistan.filters import RegionFilterSet, DistrictFilterSet, VillageFilterSet
 from uzbekistan.models import Region, District, Village, check_model
 from uzbekistan.serializers import (
@@ -19,9 +18,6 @@ class BaseLocationView(ListAPIView):
 
     filter_backends = (DjangoFilterBackend,)
     pagination_class = None
-    throttle_classes = (
-        [UserRateThrottle] if get_throttling_settings()["enabled"] else []
-    )
     model: type[Region | District | Village] | None = None
     select_related_fields: list[str] = []
 

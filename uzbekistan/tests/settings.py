@@ -29,7 +29,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'uzbekistan.urls'
+ROOT_URLCONF = 'uzbekistan.tests.urls'
 
 DATABASES = {
     'default': {
@@ -39,8 +39,8 @@ DATABASES = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': None,
+    'PAGE_SIZE': None,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
@@ -71,9 +71,5 @@ UZBEKISTAN = {
     'cache': {
         'enabled': False,
         'timeout': 3600,
-    },
-    'throttling': {
-        'enabled': False,
-        'rate': '100/hour',
     }
 } 

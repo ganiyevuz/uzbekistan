@@ -70,19 +70,8 @@ def get_cache_settings() -> Dict[str, Any]:
     return get_uzbekistan_setting("cache", {"enabled": True, "timeout": 3600})
 
 
-@lru_cache(maxsize=32)
-def get_throttling_settings() -> Dict[str, Any]:
-    """
-    Get throttling settings from configuration.
-
-    Returns:
-        Dictionary of throttling settings
-    """
-    return get_uzbekistan_setting("throttling", {"enabled": True, "rate": "100/hour"})
-
-
 def import_conditional_classes(
-    module_name: str, class_type: str
+        module_name: str, class_type: str
 ) -> Generator[Type[Any], None, None]:
     """
     Dynamically import classes based on settings configuration.
