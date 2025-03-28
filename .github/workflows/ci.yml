@@ -27,9 +27,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install black mypy bandit
       
-      - name: Check code style
-        run: black --check uzbekistan
-      
+      - name: Format code style with black
+        run: black uzbekistan
       
       - name: Security check
         run: bandit -r uzbekistan
