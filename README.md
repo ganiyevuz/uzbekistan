@@ -1,9 +1,9 @@
-# 🌍 Django Uzbekistan
+# 🌍 Uzbekistan
 
 [![PyPI Version](https://img.shields.io/pypi/v/uzbekistan)](https://pypi.org/project/uzbekistan/)
 [![Django Version](https://img.shields.io/badge/Django-5.x-green.svg)](https://www.djangoproject.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Coverage Status](https://codecov.io/gh/ganiyevuz/uzbekistan/branch/main/graph/badge.svg)](https://codecov.io/gh/ganiyevuz/uzbekistan)
+[![Codecov status](https://codecov.io/gh/ganiyevuz/uzbekistan/graph/badge.svg?token=C8D9Q4GQCX)](https://codecov.io/gh/ganiyevuz/uzbekistan)
 
 A comprehensive Django package providing complete database of Uzbekistan's Regions, Districts & Quarters with multi-language support including Latin, Cyrillic, and Russian versions.
 
@@ -24,7 +24,6 @@ A comprehensive Django package providing complete database of Uzbekistan's Regio
 - REST API endpoints
 - Configurable model activation
 - Built-in caching
-- Rate limiting protection
 - Django Admin integration
 
 ## 🚀 Quick Start
@@ -48,24 +47,20 @@ INSTALLED_APPS = [
 2. Configure in `settings.py`:
 ```python
 UZBEKISTAN = {
-    'models': {
-        'region': True,      # Enable Region model
-        'district': True,    # Enable District model
-        'village': True,     # Enable Village model
-    },
-    'views': {
-        'region': True,      # Enable RegionListAPIView
-        'district': True,    # Enable DistrictListAPIView
-        'village': True,     # Enable VillageListAPIView
-    },
-    'cache': {
-        'enabled': True,     # Enable caching
-        'timeout': 3600,     # Cache timeout (1 hour)
-    },
-    'throttling': {
-        'enabled': True,     # Enable rate limiting
-        'rate': '100/hour',  # Rate limit per user
-    }
+  'models': {
+    'region': True,  # Enable Region model
+    'district': True,  # Enable District model
+    'village': True,  # Enable Village model
+  },
+  'views': {
+    'region': True,  # Enable RegionListAPIView
+    'district': True,  # Enable DistrictListAPIView
+    'village': True,  # Enable VillageListAPIView
+  },
+  'cache': {
+    'enabled': True,  # Enable caching
+    'timeout': 3600,  # Cache timeout (1 hour)
+  }
 }
 ```
 
