@@ -71,7 +71,7 @@ def get_cache_settings() -> Dict[str, Any]:
 
 
 def import_conditional_classes(
-        module_name: str, class_type: str
+    module_name: str, class_type: str
 ) -> Generator[Type[Any], None, None]:
     """
     Dynamically import classes based on settings configuration.
