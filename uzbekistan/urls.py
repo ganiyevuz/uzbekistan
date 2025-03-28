@@ -25,7 +25,6 @@ def generate_url_patterns():
             url_pattern = f"{url_path}/<int:{view.url_relation}>"
         else:
             url_pattern = f"{url_path}"
-
         patterns.append(path(url_pattern, view.as_view(), name=url_name))
 
     return patterns
