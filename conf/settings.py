@@ -124,11 +124,11 @@ UZBEKISTAN = {
     'models': {
         'region': True,
         'district': True,
-        'village': False,
+        'village': True,
     },
     'views': {
         'region': True,
         'district': True,
-        'village': False,
+        'village': True,
     }
 }
