@@ -2,7 +2,9 @@
 Test settings for uzbekistan app.
 """
 
-SECRET_KEY = 'test-key-not-for-production'
+import os
+
+SECRET_KEY = os.getenv('DJANGO_TEST_SECRET_KEY', 'test-key-not-for-production')
 DEBUG = True
 
 INSTALLED_APPS = [
