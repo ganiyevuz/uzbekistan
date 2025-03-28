@@ -35,7 +35,7 @@ class TestDynamicImporter(TestCase):
     def test_get_enabled_models(self):
         """Test getting enabled models from settings."""
         with override_settings(
-                UZBEKISTAN={"models": {"region": True, "district": False}}
+            UZBEKISTAN={"models": {"region": True, "district": False}}
         ):
             enabled = get_enabled_models()
             self.assertEqual(enabled, {"region"})
@@ -43,7 +43,7 @@ class TestDynamicImporter(TestCase):
     def test_get_enabled_views(self):
         """Test getting enabled views from settings."""
         with override_settings(
-                UZBEKISTAN={"views": {"region": True, "district": False}}
+            UZBEKISTAN={"views": {"region": True, "district": False}}
         ):
             enabled = get_enabled_views()
             self.assertEqual(enabled, {"region"})
@@ -70,7 +70,7 @@ class TestDynamicImporter(TestCase):
     def test_import_conditional_classes_missing_class(self):
         """Test importing non-existent class."""
         with override_settings(
-                UZBEKISTAN={"views": {"nonexistent": True}, "models": {"nonexistent": True}}
+            UZBEKISTAN={"views": {"nonexistent": True}, "models": {"nonexistent": True}}
         ):
             classes = list(import_conditional_classes("uzbekistan.views", "views"))
             self.assertEqual(len(classes), 0)
@@ -78,7 +78,7 @@ class TestDynamicImporter(TestCase):
     def test_import_conditional_classes_disabled_model(self):
         """Test importing class with disabled model."""
         with override_settings(
-                UZBEKISTAN={"views": {"region": True}, "models": {"region": False}}
+            UZBEKISTAN={"views": {"region": True}, "models": {"region": False}}
         ):
             classes = list(import_conditional_classes("uzbekistan.views", "views"))
             self.assertEqual(len(classes), 0)
@@ -86,7 +86,7 @@ class TestDynamicImporter(TestCase):
     def test_import_conditional_classes_success(self):
         """Test successful class import."""
         with override_settings(
-                UZBEKISTAN={"views": {"region": True}, "models": {"region": True}}
+            UZBEKISTAN={"views": {"region": True}, "models": {"region": True}}
         ):
             classes = list(import_conditional_classes("uzbekistan.views", "views"))
             self.assertTrue(len(classes) > 0)

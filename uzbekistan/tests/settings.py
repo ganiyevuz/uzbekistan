@@ -29,7 +29,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'uzbekistan.tests.urls'
+ROOT_URLCONF = "uzbekistan.tests.urls"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -65,8 +65,8 @@ UZBEKISTAN = {
         "district": True,
         "village": True,
     },
-    'cache': {
-        'enabled': False,
-        'timeout': 3600,
-    }
+    "cache": {
+        "enabled": False,
+        "timeout": 3600,
+    },
 }
