@@ -1,37 +1,7 @@
-# Django and REST framework
 Django>=5.0.0
 djangorestframework>=3.14.0
 django-filter>=23.5
-django-cors-headers>=4.3.1
-
-# Database
-psycopg2-binary>=2.9.9
-
-# Caching
-django-redis>=5.4.0
-redis>=5.0.1
-
-# API Documentation
-drf-yasg>=1.21.7
-
-# Development & Testing
 pytest>=7.4.3
 pytest-django>=4.7.0
 pytest-cov>=4.1.0
 black>=23.11.0
-flake8>=6.1.0
-mypy>=1.7.1
-isort>=5.12.0
-
-# Type Hints
-django-stubs>=4.2.7
-djangorestframework-stubs>=3.14.5
-types-redis>=4.6.0.20240106
-
-# Production
-gunicorn>=21.2.0
-whitenoise>=6.6.0
-
-# Utilities
-python-dotenv>=1.0.0
-requests>=2.31.0

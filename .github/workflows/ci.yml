@@ -20,16 +20,20 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: 'pip'
       
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install black
+          pip install black mypy bandit
       
       - name: Check code style
         run: black --check uzbekistan
-      - name: Format code
-        run: black uzbekistan
+      
+
+      
+      - name: Security check
+        run: bandit -r uzbekistan
 
   test:
     needs: lint
@@ -41,17 +45,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: 'pip'
       
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -e ".[dev]"
-          pip install pytest pytest-cov coverage
+          pip install pytest pytest-cov pytest-xdist coverage
       
       - name: Run tests with coverage
         run: |
-          python -m pytest uzbekistan/tests/ -v --cov=uzbekistan --cov-report=xml
+          python -m pytest uzbekistan/tests/ -v --cov=uzbekistan --cov-report=xml -n auto
       
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
@@ -70,6 +75,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: 'pip'
       
       - name: Install dependencies
         run: |

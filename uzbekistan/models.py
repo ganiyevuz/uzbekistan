@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db.models import Model, CharField, ForeignKey, CASCADE, Index
 from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 from uzbekistan.dynamic_importer import get_uzbekistan_setting
@@ -53,9 +54,9 @@ class Region(Model):
         return self.name_uz
 
     def clean(self):
-        """Validate that at least one name is provided."""
-        if not any([self.name_uz, self.name_oz, self.name_ru, self.name_en]):
-            raise ValueError(_("At least one name must be provided"))
+        """Validate that all name fields are provided."""
+        if not all([self.name_uz, self.name_oz, self.name_ru, self.name_en]):
+            raise ValidationError(_("All name fields must be provided."))
 
 
 class District(Model):
@@ -96,9 +97,9 @@ class District(Model):
         return self.name_uz
 
     def clean(self):
-        """Validate that at least one name is provided."""
-        if not any([self.name_uz, self.name_oz, self.name_ru, self.name_en]):
-            raise ValueError(_("At least one name must be provided"))
+        """Validate that all name fields are provided."""
+        if not all([self.name_uz, self.name_oz, self.name_ru, self.name_en]):
+            raise ValidationError(_("All name fields must be provided."))
 
     @property
     def region_name(self):
@@ -136,9 +137,9 @@ class Village(Model):
         return self.name_uz
 
     def clean(self):
-        """Validate that at least one name is provided."""
-        if not any([self.name_uz, self.name_oz, self.name_ru]):
-            raise ValueError(_("At least one name must be provided"))
+        """Validate that all name fields are provided."""
+        if not all([self.name_uz, self.name_oz, self.name_ru]):
+            raise ValidationError(_("All name fields must be provided."))
 
     @property
     def district_name(self):

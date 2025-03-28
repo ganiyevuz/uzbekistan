@@ -3,6 +3,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/uzbekistan)](https://pypi.org/project/uzbekistan/)
 [![Django Version](https://img.shields.io/badge/Django-5.x-green.svg)](https://www.djangoproject.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Coverage Status](https://codecov.io/gh/ganiyevuz/uzbekistan/branch/main/graph/badge.svg)](https://codecov.io/gh/ganiyevuz/uzbekistan)
 
 A comprehensive Django package providing complete database of Uzbekistan's Regions, Districts & Quarters with multi-language support including Latin, Cyrillic, and Russian versions.
 

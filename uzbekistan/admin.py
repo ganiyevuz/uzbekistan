@@ -19,6 +19,7 @@ if settings.UZBEKISTAN["models"].get("district", False):
             "name_uz", "name_oz", "name_ru", "name_en", "region__name_uz", 'region__name_oz', "region__name_ru",
             "region__name_en")
         sortable_by = ("name_uz", "name_oz", "name_ru", "name_en", "region")
+        list_filter = ("region",)
         save_on_top = True
 
         def get_region_name(self, obj):
@@ -50,6 +51,7 @@ if settings.UZBEKISTAN["models"].get("village", False):
             "district__region__name_en",
         )
         sortable_by = ("name_uz", "name_oz", "name_ru", "district")
+        list_filter = ("district", "district__region")
         save_on_top = True
 
         def get_district_name(self, obj):

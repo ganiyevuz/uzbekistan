@@ -26,11 +26,11 @@ def get_uzbekistan_setting(setting_name: str, default: Any = None) -> Any:
     Raises:
         ImproperlyConfigured: If UZBEKISTAN setting is not configured
     """
-    if not hasattr(settings, "UZBEKISTAN"):
+    if not hasattr(settings, "UZBEKISTAN") or settings.UZBEKISTAN is None:
         raise ImproperlyConfigured(
             "The UZBEKISTAN setting is required. Please add it to your settings.py file."
         )
-    return getattr(settings, "UZBEKISTAN", {}).get(setting_name, default)
+    return settings.UZBEKISTAN.get(setting_name, default)
 
 
 @lru_cache(maxsize=32)
@@ -129,6 +129,10 @@ def import_conditional_classes(
             # Check if model is enabled
             model_name = cls.model.__name__.lower()
             if model_name not in enabled_models:
+                continue
+
+            # Check if view is enabled
+            if class_type == "views" and item_name not in get_enabled_views():
                 continue
 
             yield cls

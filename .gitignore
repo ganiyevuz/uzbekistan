@@ -163,3 +163,7 @@ htmlcov/
 # Project specific
 uzbekistan/migrations/*.py
 !uzbekistan/migrations/__init__.py
+
+# Coverage
+.coverage
+htmlcov/
