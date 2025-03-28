@@ -8,22 +8,18 @@ with open('requirements.txt') as f:
 
 # Development dependencies
 dev_requirements = [
-    'pytest>=7.4.3',
+    'pytest>=8.0.0',
     'pytest-django>=4.7.0',
     'pytest-cov>=4.1.0',
-    'black>=23.11.0',
-    'flake8>=6.1.0',
-    'mypy>=1.7.1',
+    'black>=24.2.0',
     'isort>=5.12.0',
-    'django-stubs>=4.2.7',
-    'djangorestframework-stubs>=3.14.5',
-    'types-redis>=4.6.0.20240106',
+    'coverage>=7.4.0'
 ]
 
 setup(
     name='uzbekistan',
     version=VERSION,
-    description='Django app for Uzbekistan administrative divisions',
+    description='Comprehensive Django package providing complete database of Uzbekistan\'s Regions, Districts & Quarters with multi-language support including Latin, Cyrillic, and Russian versions.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Jakhongir Ganiev',
@@ -45,15 +41,16 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    python_requires='>=3.8,<4.0',
-    keywords=['django', 'uzbekistan', 'regions', 'districts', 'villages', 'api'],
+    python_requires='>=3.9',
+    keywords=['django', 'uzbekistan', 'regions', 'districts', 'villages', 'api', 'multilingual', 'geography', 'administrative', 'divisions'],
     project_urls={
         'Documentation': 'https://github.com/ganiyevuz/uzbekistan',
         'Source': 'https://github.com/ganiyevuz/uzbekistan',
