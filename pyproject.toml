@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "uzbekistan"
 version = "2.7.3"
-description = ""
+description = "A comprehensive Django package providing complete database of Uzbekistan's Regions, Districts & Quarters with multi-language support including Latin, Cyrillic, and Russian versions."
 authors = ["jakhongir <ganiyevuzb@gmail.com>"]
 readme = "README.md"
 
