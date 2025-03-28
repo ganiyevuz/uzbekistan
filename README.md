@@ -4,7 +4,7 @@
 [![Django Version](https://img.shields.io/badge/Django-5.x-green.svg)](https://www.djangoproject.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A comprehensive Django app providing Uzbekistan's administrative divisions database with multi-language support.
+A comprehensive Django package providing complete database of Uzbekistan's Regions, Districts & Quarters with multi-language support including Latin, Cyrillic, and Russian versions.
 
 ## 📊 Database Overview
 
@@ -14,7 +14,7 @@ A comprehensive Django app providing Uzbekistan's administrative divisions datab
 
 ## ✨ Features
 
-- Complete database of Uzbekistan's administrative divisions
+- Complete database of Uzbekistan's Regions, Districts & Quarters
 - Multi-language support:
   - Uzbek (Latin)
   - Uzbek (Cyrillic)
