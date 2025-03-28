@@ -30,7 +30,6 @@ jobs:
       - name: Check code style
         run: black --check uzbekistan
       
-
       
       - name: Security check
         run: bandit -r uzbekistan

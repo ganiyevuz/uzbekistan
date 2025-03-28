@@ -12,7 +12,6 @@ dev_requirements = [
     'pytest-django>=4.7.0',
     'pytest-cov>=4.1.0',
     'black>=24.2.0',
-    'isort>=5.12.0',
     'coverage>=7.4.0'
 ]
 
