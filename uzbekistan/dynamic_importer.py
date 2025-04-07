@@ -3,12 +3,18 @@ from importlib import import_module
 from typing import Generator, Type, Any, Dict
 
 from django.conf import settings
+from django.core.cache import cache
 from django.core.exceptions import ImproperlyConfigured
 
 
 class DynamicImportError(Exception):
     """Custom exception for dynamic import errors."""
 
+    pass
+
+
+class CacheIncorrectlyConfigured(Exception):
+    """Custom exception for cache configuration errors."""
     pass
 
 
@@ -67,11 +73,22 @@ def get_cache_settings() -> Dict[str, Any]:
     Returns:
         Dictionary of cache settings
     """
-    return get_uzbekistan_setting("cache", {"enabled": True, "timeout": 3600})
+    cache_settings = get_uzbekistan_setting("cache", {"enabled": True, "timeout": 3600})
+    if cache_settings['enabled']:
+        try:
+            cache.set('healthy_check_uzbekistan', 'alive', timeout=cache_settings['timeout'])
+            cache_data = cache.get('healthy_check_uzbekistan')
+            cache.delete('healthy_check_uzbekistan')
+            # Check if the cache is working correctly
+            if cache_data != 'alive':
+                raise CacheIncorrectlyConfigured('Cache is not configured correctly.')
+        except Exception as e:
+            raise CacheIncorrectlyConfigured(e)
+    return cache_settings
 
 
 def import_conditional_classes(
-    module_name: str, class_type: str
+        module_name: str, class_type: str
 ) -> Generator[Type[Any], None, None]:
     """
     Dynamically import classes based on settings configuration.
