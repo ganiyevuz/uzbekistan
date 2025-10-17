@@ -9,7 +9,9 @@ class UzbekistanConfig(AppConfig):
     name = "uzbekistan"
 
     def ready(self):
-        if not DynamicImporter.get_setting('models', None) or not DynamicImporter.get_setting('views', None):
+        if not DynamicImporter.get_setting(
+            "models", None
+        ) or not DynamicImporter.get_setting("views", None):
             raise Exception("UZBEKISTAN settings is not configured properly.")
 
         enabled_models = settings.UZBEKISTAN["models"]

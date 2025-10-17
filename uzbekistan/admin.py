@@ -8,15 +8,21 @@ if DynamicImporter.is_model_enabled("region"):
 
     @admin.register(Region)
     class RegionAdmin(ModelAdmin):
-        list_display = ("name_uz", "name_oz", "name_ru", "name_en", "get_district_count")
+        list_display = (
+            "name_uz",
+            "name_oz",
+            "name_ru",
+            "name_en",
+            "get_district_count",
+        )
         search_fields = ("name_uz", "name_oz", "name_ru", "name_en")
         sortable_by = ("name_uz", "name_oz", "name_ru", "name_en")
         list_per_page = 50
-        
+
         def get_district_count(self, obj):
             """Get the count of districts in this region."""
             return obj.districts.count()
-        
+
         get_district_count.short_description = "Districts"
         get_district_count.admin_order_field = "districts__count"
 
@@ -25,7 +31,14 @@ if DynamicImporter.is_model_enabled("district"):
 
     @admin.register(District)
     class DistrictAdmin(ModelAdmin):
-        list_display = ("name_uz", "name_oz", "name_ru", "name_en", "get_region_name", "get_village_count")
+        list_display = (
+            "name_uz",
+            "name_oz",
+            "name_ru",
+            "name_en",
+            "get_region_name",
+            "get_village_count",
+        )
         search_fields = (
             "name_uz",
             "name_oz",
@@ -47,11 +60,11 @@ if DynamicImporter.is_model_enabled("district"):
 
         get_region_name.short_description = "Region"
         get_region_name.admin_order_field = "region__name_uz"
-        
+
         def get_village_count(self, obj):
             """Get the count of villages in this district."""
             return obj.villages.count()
-        
+
         get_village_count.short_description = "Villages"
         get_village_count.admin_order_field = "villages__count"
 

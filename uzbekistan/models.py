@@ -48,10 +48,10 @@ class Region(Model):
     def search_by_name(cls, query):
         """Optimized search method for finding regions by name."""
         return cls.objects.filter(
-            Q(name_uz__icontains=query) |
-            Q(name_oz__icontains=query) |
-            Q(name_ru__icontains=query) |
-            Q(name_en__icontains=query)
+            Q(name_uz__icontains=query)
+            | Q(name_oz__icontains=query)
+            | Q(name_ru__icontains=query)
+            | Q(name_en__icontains=query)
         ).distinct()
 
 
@@ -93,11 +93,11 @@ class District(Model):
     @classmethod
     def search_by_name(cls, query, region=None):
         """Optimized search method for finding districts by name."""
-        queryset = cls.objects.select_related('region').filter(
-            Q(name_uz__icontains=query) |
-            Q(name_oz__icontains=query) |
-            Q(name_ru__icontains=query) |
-            Q(name_en__icontains=query)
+        queryset = cls.objects.select_related("region").filter(
+            Q(name_uz__icontains=query)
+            | Q(name_oz__icontains=query)
+            | Q(name_ru__icontains=query)
+            | Q(name_en__icontains=query)
         )
         if region:
             queryset = queryset.filter(region=region)
@@ -140,10 +140,10 @@ class Village(Model):
     @classmethod
     def search_by_name(cls, query, district=None, region=None):
         """Optimized search method for finding villages by name."""
-        queryset = cls.objects.select_related('district', 'district__region').filter(
-            Q(name_uz__icontains=query) |
-            Q(name_oz__icontains=query) |
-            Q(name_ru__icontains=query)
+        queryset = cls.objects.select_related("district", "district__region").filter(
+            Q(name_uz__icontains=query)
+            | Q(name_oz__icontains=query)
+            | Q(name_ru__icontains=query)
         )
         if district:
             queryset = queryset.filter(district=district)
@@ -165,19 +165,19 @@ class Village(Model):
 def check_model(model):
     """
     Check if the model is enabled in settings and its dependencies are met.
-    
+
     Args:
         model: Django model class to check
-        
+
     Raises:
         NotImplementedError: If model is not enabled or dependencies are not met
     """
     model_name = model.__name__.lower()
-    
+
     # Check if model is abstract
     if model._meta.abstract:
         raise NotImplementedError(f"Abstract model '{model}' cannot be used directly.")
-    
+
     # Check if model is enabled
     if not DynamicImporter.is_model_enabled(model_name):
         raise NotImplementedError(
@@ -185,13 +185,10 @@ def check_model(model):
             "Please check that this model is set to True in the 'models' dictionary "
             "of the UZBEKISTAN setting in your settings.py file."
         )
-    
+
     # Check dependencies
-    dependencies = {
-        "district": ["region"], 
-        "village": ["region", "district"]
-    }
-    
+    dependencies = {"district": ["region"], "village": ["region", "district"]}
+
     if model_name in dependencies:
         for dep in dependencies[model_name]:
             if not DynamicImporter.is_model_enabled(dep):

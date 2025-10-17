@@ -46,7 +46,7 @@ class BaseLocationView(ListAPIView):
 
     def get_permissions(self):
         """Override to allow unrestricted access."""
-        use_authentication = DynamicImporter.get_setting('use_authentication', False)
+        use_authentication = DynamicImporter.get_setting("use_authentication", False)
         return [] if not use_authentication else super().get_permissions()
 
     def _generate_cache_key(self, request):

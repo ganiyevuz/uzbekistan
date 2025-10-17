@@ -100,29 +100,32 @@ class TestDynamicImporter(TestCase):
     def test_dynamic_importer_class_methods(self):
         """Test new DynamicImporter class methods."""
         with override_settings(
-            UZBEKISTAN={"models": {"region": True, "district": False}, "views": {"region": True}}
+            UZBEKISTAN={
+                "models": {"region": True, "district": False},
+                "views": {"region": True},
+            }
         ):
             # Test is_model_enabled
             self.assertTrue(DynamicImporter.is_model_enabled("region"))
             self.assertFalse(DynamicImporter.is_model_enabled("district"))
-            
+
             # Test is_view_enabled
             self.assertTrue(DynamicImporter.is_view_enabled("region"))
             self.assertFalse(DynamicImporter.is_view_enabled("district"))
-            
+
             # Test get_enabled_items
             models = DynamicImporter.get_enabled_items("models")
             self.assertEqual(models, {"region"})
-            
+
             views = DynamicImporter.get_enabled_items("views")
             self.assertEqual(views, {"region"})
 
     def test_cache_config(self):
         """Test cache configuration."""
         cache_config = DynamicImporter.get_cache_config()
-        self.assertTrue(hasattr(cache_config, 'enabled'))
-        self.assertTrue(hasattr(cache_config, 'timeout'))
-        self.assertTrue(hasattr(cache_config, 'key_prefix'))
+        self.assertTrue(hasattr(cache_config, "enabled"))
+        self.assertTrue(hasattr(cache_config, "timeout"))
+        self.assertTrue(hasattr(cache_config, "key_prefix"))
 
     def test_validate_configuration(self):
         """Test configuration validation."""
@@ -132,14 +135,12 @@ class TestDynamicImporter(TestCase):
         ):
             # Should not raise any exception
             validate_configuration()
-        
+
         # Test with no models enabled
-        with override_settings(
-            UZBEKISTAN={"models": {}, "views": {}}
-        ):
+        with override_settings(UZBEKISTAN={"models": {}, "views": {}}):
             with self.assertRaises(ImproperlyConfigured):
                 validate_configuration()
-        
+
         # Test with district enabled but region disabled
         with override_settings(
             UZBEKISTAN={"models": {"district": True}, "views": {"district": True}}

@@ -11,6 +11,7 @@ from django.core.exceptions import ImproperlyConfigured
 @dataclass(frozen=True)
 class CacheConfig:
     """Cache configuration dataclass."""
+
     enabled: bool = True
     timeout: int = 3600
     key_prefix: str = "uzbekistan"
@@ -18,18 +19,20 @@ class CacheConfig:
 
 class DynamicImportError(Exception):
     """Custom exception for dynamic import errors."""
+
     pass
 
 
 class CacheIncorrectlyConfigured(Exception):
     """Custom exception for cache configuration errors."""
+
     pass
 
 
 class DynamicImporter:
     """
     Dynamic importer for the package.
-    
+
     This class handles all dynamic importing logic with proper caching,
     error handling, and type safety.
     """
@@ -41,14 +44,14 @@ class DynamicImporter:
     def get_setting(setting_name: str, default: Any = None) -> Any:
         """
         Get a setting from UZBEKISTAN settings with proper error handling.
-        
+
         Args:
             setting_name: Name of the setting to get
             default: Default value if setting doesn't exist
-            
+
         Returns:
             The setting value or default
-            
+
         Raises:
             ImproperlyConfigured: If UZBEKISTAN setting is not configured
         """
@@ -63,15 +66,13 @@ class DynamicImporter:
     def get_cache_config(cls) -> CacheConfig:
         """
         Get cache configuration with caching.
-        
+
         Returns:
             CacheConfig object with cache settings
         """
-        cache_settings = cls.get_setting("cache", {
-            "enabled": True,
-            "timeout": 3600,
-            "key_prefix": "uzbekistan"
-        })
+        cache_settings = cls.get_setting(
+            "cache", {"enabled": True, "timeout": 3600, "key_prefix": "uzbekistan"}
+        )
         return CacheConfig(**cache_settings)
 
     @classmethod
@@ -79,10 +80,10 @@ class DynamicImporter:
     def get_enabled_items(cls, item_type: str) -> Set[str]:
         """
         Get a set of enabled items (models/views) from settings.
-        
+
         Args:
             item_type: Type of items ('models' or 'views')
-            
+
         Returns:
             Set of enabled item names
         """
@@ -93,7 +94,7 @@ class DynamicImporter:
     def validate_cache(cls) -> None:
         """
         Validate cache configuration and functionality.
-        
+
         Raises:
             CacheIncorrectlyConfigured: If cache is not working properly
         """
@@ -121,13 +122,13 @@ class DynamicImporter:
     def get_module(cls, module_name: str) -> Any:
         """
         Get module with caching to avoid repeated imports.
-        
+
         Args:
             module_name: Full module path to import
-            
+
         Returns:
             Imported module object
-            
+
         Raises:
             DynamicImportError: If import fails
         """
@@ -143,11 +144,11 @@ class DynamicImporter:
     def get_class_name(cls, item_name: str, class_type: str) -> str:
         """
         Generate class name based on item name and type.
-        
+
         Args:
             item_name: Name of the item (e.g., 'region')
             class_type: Type of class ('views' or 'models')
-            
+
         Returns:
             Generated class name
         """
@@ -162,11 +163,11 @@ class DynamicImporter:
     def validate_class(cls, class_obj: Type[Any], class_type: str) -> bool:
         """
         Validate that a class meets the requirements.
-        
+
         Args:
             class_obj: Class object to validate
             class_type: Type of class ('views' or 'models')
-            
+
         Returns:
             True if the class is valid, False otherwise
         """
@@ -182,11 +183,11 @@ class DynamicImporter:
     def check_dependencies(cls, class_obj: Type[Any], class_type: str) -> bool:
         """
         Check if class dependencies are met.
-        
+
         Args:
             class_obj: Class object to check
             class_type: Type of class ('views' or 'models')
-            
+
         Returns:
             True if dependencies are met, False otherwise
         """
@@ -198,20 +199,18 @@ class DynamicImporter:
 
     @classmethod
     def import_classes(
-            cls,
-            module_name: str,
-            class_type: str
+        cls, module_name: str, class_type: str
     ) -> Generator[Type[Any], None, None]:
         """
         Dynamically import classes based on settings configuration.
-        
+
         Args:
             module_name: Full module path to import from
             class_type: Type of classes to import ('views' or 'models')
-            
+
         Yields:
             Imported class objects that meet all requirements
-            
+
         Raises:
             DynamicImportError: If import fails or class not found
         """
@@ -306,7 +305,7 @@ def get_cache_settings() -> Dict[str, Any]:
     return {
         "enabled": cache_config.enabled,
         "timeout": cache_config.timeout,
-        "key_prefix": cache_config.key_prefix
+        "key_prefix": cache_config.key_prefix,
     }
 
 
@@ -344,12 +343,20 @@ def validate_configuration() -> None:
 
     # Check that at least one model is enabled
     if not get_enabled_models():
-        raise ImproperlyConfigured("At least one model must be enabled in UZBEKISTAN settings.")
+        raise ImproperlyConfigured(
+            "At least one model must be enabled in UZBEKISTAN settings."
+        )
 
     # Check dependencies
     enabled_models = get_enabled_models()
     if "district" in enabled_models and "region" not in enabled_models:
-        raise ImproperlyConfigured("District model requires Region model to be enabled.")
+        raise ImproperlyConfigured(
+            "District model requires Region model to be enabled."
+        )
 
-    if "village" in enabled_models and ("region" not in enabled_models or "district" not in enabled_models):
-        raise ImproperlyConfigured("Village model requires both Region and District models to be enabled.")
+    if "village" in enabled_models and (
+        "region" not in enabled_models or "district" not in enabled_models
+    ):
+        raise ImproperlyConfigured(
+            "Village model requires both Region and District models to be enabled."
+        )
