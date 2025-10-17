@@ -173,7 +173,7 @@ class TestVillage(TestCase):
         self.assertEqual(len(results), 1)
         self.assertEqual(results.first(), self.village)
 
-        # Test search with district filter
+        # Test search with a district filter
         results = Village.search_by_name("Miro", district=self.district)
         self.assertEqual(len(results), 1)
 

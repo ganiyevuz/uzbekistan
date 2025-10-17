@@ -47,20 +47,22 @@ INSTALLED_APPS = [
 2. Configure in `settings.py`:
 ```python
 UZBEKISTAN = {
-  'models': {
-    'region': True,  # Enable Region model
-    'district': True,  # Enable District model
-    'village': True,  # Enable Village model
-  },
-  'views': {
-    'region': True,  # Enable RegionListAPIView
-    'district': True,  # Enable DistrictListAPIView
-    'village': True,  # Enable VillageListAPIView
-  },
-  'cache': {
-    'enabled': True,  # Enable caching
-    'timeout': 3600,  # Cache timeout (1 hour)
-  }
+    'models': {
+        'region': True,  # Enable Region model
+        'district': True,  # Enable District model
+        'village': True,  # Enable Village model
+    },
+    'views': {
+        'region': True,  # Enable RegionListAPIView
+        'district': True,  # Enable DistrictListAPIView
+        'village': True,  # Enable VillageListAPIView
+    },
+    'cache': {
+        'enabled': True,  # Enable caching
+        'timeout': 3600,  # Cache timeout (1 hour)
+        'key_prefix': "uzbekistan"  # Cache key prefix
+    },
+    "use_authentication": False  # Disable authentication for API views (if needed)
 }
 ```
 
