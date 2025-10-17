@@ -1,15 +1,15 @@
 from django.apps import AppConfig
 from django.conf import settings
 
+from uzbekistan.dynamic_importer import DynamicImporter
+
 
 class UzbekistanConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "uzbekistan"
 
     def ready(self):
-        if not settings.UZBEKISTAN.get("models") or not settings.UZBEKISTAN.get(
-            "views"
-        ):
+        if not DynamicImporter.get_setting('models', None) or not DynamicImporter.get_setting('views', None):
             raise Exception("UZBEKISTAN settings is not configured properly.")
 
         enabled_models = settings.UZBEKISTAN["models"]

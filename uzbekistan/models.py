@@ -1,18 +1,8 @@
-from django.conf import settings
-from django.db.models import Model, CharField, ForeignKey, CASCADE, Index, Q
-from django.core.validators import RegexValidator
+from django.db.models import Model, CharField, ForeignKey, CASCADE, Q
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-from django.db.models.functions import Concat
-from django.db.models import Value
 
 from uzbekistan.dynamic_importer import DynamicImporter
-
-# Language code validator
-language_code_validator = RegexValidator(
-    regex="^[a-z]{2}$",
-    message=_("Language code must be 2 lowercase letters (e.g., uz, ru, en)"),
-)
 
 
 class Region(Model):

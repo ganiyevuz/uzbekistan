@@ -134,6 +134,7 @@ UZBEKISTAN = {
         "timeout": 3600,
         "key_prefix": "uzbekistan",
     },
+    "use_authentication": False
 }
 
 
