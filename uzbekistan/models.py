@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models.functions import Concat
 from django.db.models import Value
 
-from uzbekistan.dynamic_importer import get_uzbekistan_setting
+from uzbekistan.dynamic_importer import DynamicImporter
 
 # Language code validator
 language_code_validator = RegexValidator(
@@ -173,25 +173,38 @@ class Village(Model):
 
 
 def check_model(model):
-    """Check if the model is enabled in settings and its dependencies are met."""
+    """
+    Check if the model is enabled in settings and its dependencies are met.
+    
+    Args:
+        model: Django model class to check
+        
+    Raises:
+        NotImplementedError: If model is not enabled or dependencies are not met
+    """
     model_name = model.__name__.lower()
-
-    # Get enabled models from settings
-    enabled_models = get_uzbekistan_setting("models", {})
-
-    if model._meta.abstract or not enabled_models.get(model_name, False):
+    
+    # Check if model is abstract
+    if model._meta.abstract:
+        raise NotImplementedError(f"Abstract model '{model}' cannot be used directly.")
+    
+    # Check if model is enabled
+    if not DynamicImporter.is_model_enabled(model_name):
         raise NotImplementedError(
             f"The model '{model}' is not enabled in the current configuration. "
             "Please check that this model is set to True in the 'models' dictionary "
             "of the UZBEKISTAN setting in your settings.py file."
         )
-
+    
     # Check dependencies
-    dependencies = {"district": ["region"], "village": ["region", "district"]}
-
+    dependencies = {
+        "district": ["region"], 
+        "village": ["region", "district"]
+    }
+    
     if model_name in dependencies:
         for dep in dependencies[model_name]:
-            if not enabled_models.get(dep, False):
+            if not DynamicImporter.is_model_enabled(dep):
                 raise NotImplementedError(
                     f"The '{model.__name__}' model requires the '{dep.title()}' model to be enabled. "
                     "Please ensure that '{dep.title()}' is set to True in the 'models' dictionary "

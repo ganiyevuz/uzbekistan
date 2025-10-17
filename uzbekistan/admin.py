@@ -1,10 +1,10 @@
-from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 
 from uzbekistan.models import Region, District, Village
+from uzbekistan.dynamic_importer import DynamicImporter
 
-if settings.UZBEKISTAN["models"].get("region", False):
+if DynamicImporter.is_model_enabled("region"):
 
     @admin.register(Region)
     class RegionAdmin(ModelAdmin):
@@ -21,7 +21,7 @@ if settings.UZBEKISTAN["models"].get("region", False):
         get_district_count.admin_order_field = "districts__count"
 
 
-if settings.UZBEKISTAN["models"].get("district", False):
+if DynamicImporter.is_model_enabled("district"):
 
     @admin.register(District)
     class DistrictAdmin(ModelAdmin):
@@ -56,7 +56,7 @@ if settings.UZBEKISTAN["models"].get("district", False):
         get_village_count.admin_order_field = "villages__count"
 
 
-if settings.UZBEKISTAN["models"].get("village", False):
+if DynamicImporter.is_model_enabled("village"):
 
     @admin.register(Village)
     class VillageAdmin(ModelAdmin):

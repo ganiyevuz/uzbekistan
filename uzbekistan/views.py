@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 
-from uzbekistan.dynamic_importer import get_cache_settings
+from uzbekistan.dynamic_importer import DynamicImporter
 from uzbekistan.filters import RegionFilterSet, DistrictFilterSet, VillageFilterSet
 from uzbekistan.models import Region, District, Village, check_model
 from uzbekistan.serializers import (
@@ -44,26 +44,24 @@ class BaseLocationView(ListAPIView):
 
         return queryset
 
-    # def get_permissions(self):
-    #     """Override to allow unrestricted access."""
-    #     return []
+    def get_permissions(self):
+        """Override to allow unrestricted access."""
+        use_authentication = DynamicImporter.get_setting('use_authentication', False)
+        return [] if not use_authentication else super().get_permissions()
 
     def _generate_cache_key(self, request):
-        """Generate a more efficient cache key using hash."""
-        # Get cache settings for key prefix
-        cache_settings = get_cache_settings()
-        key_prefix = cache_settings.get("key_prefix", "uzbekistan")
-        
-        # Create a deterministic string from query params
+        """Generate a cache key using hash."""
+        # Get cache configuration
+        cache_config = DynamicImporter.get_cache_config()
+
         query_string = str(sorted(request.query_params.items()))
-        # Use hash for shorter, more efficient cache keys
         query_hash = hashlib.md5(query_string.encode()).hexdigest()
-        return f"{key_prefix}_{self.__class__.__name__}_{query_hash}"
+        return f"{cache_config.key_prefix}_{self.__class__.__name__}_{query_hash}"
 
     def list(self, request, *args, **kwargs):
-        cache_settings = get_cache_settings()
+        cache_config = DynamicImporter.get_cache_config()
 
-        if not cache_settings["enabled"]:
+        if not cache_config.enabled:
             return super().list(request, *args, **kwargs)
 
         cache_key = self._generate_cache_key(request)
@@ -73,7 +71,7 @@ class BaseLocationView(ListAPIView):
             return Response(cached_response)
 
         response = super().list(request, *args, **kwargs)
-        cache.set(cache_key, response.data, timeout=cache_settings["timeout"])
+        cache.set(cache_key, response.data, timeout=cache_config.timeout)
         return response
 
 

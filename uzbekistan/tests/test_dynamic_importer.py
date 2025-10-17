@@ -2,12 +2,14 @@ from django.test import TestCase, override_settings
 from django.core.exceptions import ImproperlyConfigured
 
 from uzbekistan.dynamic_importer import (
+    DynamicImporter,
     get_uzbekistan_setting,
     get_enabled_models,
     get_enabled_views,
     get_cache_settings,
     import_conditional_classes,
     DynamicImportError,
+    validate_configuration,
 )
 from uzbekistan.models import Region, District, Village
 
@@ -18,6 +20,7 @@ class TestDynamicImporter(TestCase):
         get_enabled_models.cache_clear()
         get_enabled_views.cache_clear()
         get_cache_settings.cache_clear()
+        DynamicImporter.clear_cache()
 
     @override_settings(UZBEKISTAN=None)
     def test_get_uzbekistan_setting_missing(self):
@@ -93,3 +96,58 @@ class TestDynamicImporter(TestCase):
             for cls in classes:
                 self.assertTrue(hasattr(cls, "model"))
                 self.assertTrue(cls.model in [Region, District, Village])
+
+    def test_dynamic_importer_class_methods(self):
+        """Test new DynamicImporter class methods."""
+        with override_settings(
+            UZBEKISTAN={"models": {"region": True, "district": False}, "views": {"region": True}}
+        ):
+            # Test is_model_enabled
+            self.assertTrue(DynamicImporter.is_model_enabled("region"))
+            self.assertFalse(DynamicImporter.is_model_enabled("district"))
+            
+            # Test is_view_enabled
+            self.assertTrue(DynamicImporter.is_view_enabled("region"))
+            self.assertFalse(DynamicImporter.is_view_enabled("district"))
+            
+            # Test get_enabled_items
+            models = DynamicImporter.get_enabled_items("models")
+            self.assertEqual(models, {"region"})
+            
+            views = DynamicImporter.get_enabled_items("views")
+            self.assertEqual(views, {"region"})
+
+    def test_cache_config(self):
+        """Test cache configuration."""
+        cache_config = DynamicImporter.get_cache_config()
+        self.assertTrue(hasattr(cache_config, 'enabled'))
+        self.assertTrue(hasattr(cache_config, 'timeout'))
+        self.assertTrue(hasattr(cache_config, 'key_prefix'))
+
+    def test_validate_configuration(self):
+        """Test configuration validation."""
+        # Test with valid configuration
+        with override_settings(
+            UZBEKISTAN={"models": {"region": True}, "views": {"region": True}}
+        ):
+            # Should not raise any exception
+            validate_configuration()
+        
+        # Test with no models enabled
+        with override_settings(
+            UZBEKISTAN={"models": {}, "views": {}}
+        ):
+            with self.assertRaises(ImproperlyConfigured):
+                validate_configuration()
+        
+        # Test with district enabled but region disabled
+        with override_settings(
+            UZBEKISTAN={"models": {"district": True}, "views": {"district": True}}
+        ):
+            with self.assertRaises(ImproperlyConfigured):
+                validate_configuration()
+
+    def test_clear_cache(self):
+        """Test cache clearing functionality."""
+        # This should not raise any exception
+        DynamicImporter.clear_cache()
