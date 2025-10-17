@@ -1,3 +1,5 @@
+import hashlib
+
 from django.core.cache import cache
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListAPIView
@@ -20,7 +22,7 @@ class BaseLocationView(ListAPIView):
     pagination_class = None
     model: type[Region | District | Village] | None = None
     select_related_fields: list[str] = []
-
+    prefetch_related_fields: list[str] = []
     # URL configuration
     url_path = ""
     url_name = ""
@@ -34,7 +36,29 @@ class BaseLocationView(ListAPIView):
             filter_kwargs = {self.url_relation: self.kwargs[self.url_relation]}
             queryset = queryset.filter(**filter_kwargs)
 
-        return queryset.select_related(*self.select_related_fields)
+        # Optimize queries with select_related and prefetch_related
+        if self.select_related_fields:
+            queryset = queryset.select_related(*self.select_related_fields)
+        if self.prefetch_related_fields:
+            queryset = queryset.prefetch_related(*self.prefetch_related_fields)
+
+        return queryset
+
+    # def get_permissions(self):
+    #     """Override to allow unrestricted access."""
+    #     return []
+
+    def _generate_cache_key(self, request):
+        """Generate a more efficient cache key using hash."""
+        # Get cache settings for key prefix
+        cache_settings = get_cache_settings()
+        key_prefix = cache_settings.get("key_prefix", "uzbekistan")
+        
+        # Create a deterministic string from query params
+        query_string = str(sorted(request.query_params.items()))
+        # Use hash for shorter, more efficient cache keys
+        query_hash = hashlib.md5(query_string.encode()).hexdigest()
+        return f"{key_prefix}_{self.__class__.__name__}_{query_hash}"
 
     def list(self, request, *args, **kwargs):
         cache_settings = get_cache_settings()
@@ -42,7 +66,7 @@ class BaseLocationView(ListAPIView):
         if not cache_settings["enabled"]:
             return super().list(request, *args, **kwargs)
 
-        cache_key = f"{self.__class__.__name__}_{request.query_params}"
+        cache_key = self._generate_cache_key(request)
         cached_response = cache.get(cache_key)
 
         if cached_response:

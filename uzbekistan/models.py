@@ -1,8 +1,10 @@
 from django.conf import settings
-from django.db.models import Model, CharField, ForeignKey, CASCADE, Index
+from django.db.models import Model, CharField, ForeignKey, CASCADE, Index, Q
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+from django.db.models.functions import Concat
+from django.db.models import Value
 
 from uzbekistan.dynamic_importer import get_uzbekistan_setting
 
@@ -41,12 +43,6 @@ class Region(Model):
 
     class Meta:
         db_table = "regions"
-        indexes = [
-            Index(fields=["name_uz"]),
-            Index(fields=["name_oz"]),
-            Index(fields=["name_ru"]),
-            Index(fields=["name_en"]),
-        ]
         verbose_name = _("Region")
         verbose_name_plural = _("Regions")
 
@@ -57,6 +53,16 @@ class Region(Model):
         """Validate that all name fields are provided."""
         if not all([self.name_uz, self.name_oz, self.name_ru, self.name_en]):
             raise ValidationError(_("All name fields must be provided."))
+
+    @classmethod
+    def search_by_name(cls, query):
+        """Optimized search method for finding regions by name."""
+        return cls.objects.filter(
+            Q(name_uz__icontains=query) |
+            Q(name_oz__icontains=query) |
+            Q(name_ru__icontains=query) |
+            Q(name_en__icontains=query)
+        ).distinct()
 
 
 class District(Model):
@@ -83,13 +89,6 @@ class District(Model):
     class Meta:
         db_table = "districts"
         unique_together = ("name_uz", "name_oz", "name_ru", "region")
-        indexes = [
-            Index(fields=["name_uz"]),
-            Index(fields=["name_oz"]),
-            Index(fields=["name_ru"]),
-            Index(fields=["name_en"]),
-            Index(fields=["region"]),
-        ]
         verbose_name = _("District")
         verbose_name_plural = _("Districts")
 
@@ -100,6 +99,19 @@ class District(Model):
         """Validate that all name fields are provided."""
         if not all([self.name_uz, self.name_oz, self.name_ru, self.name_en]):
             raise ValidationError(_("All name fields must be provided."))
+
+    @classmethod
+    def search_by_name(cls, query, region=None):
+        """Optimized search method for finding districts by name."""
+        queryset = cls.objects.select_related('region').filter(
+            Q(name_uz__icontains=query) |
+            Q(name_oz__icontains=query) |
+            Q(name_ru__icontains=query) |
+            Q(name_en__icontains=query)
+        )
+        if region:
+            queryset = queryset.filter(region=region)
+        return queryset.distinct()
 
     @property
     def region_name(self):
@@ -124,12 +136,6 @@ class Village(Model):
     class Meta:
         db_table = "villages"
         unique_together = ("name_uz", "name_oz", "name_ru", "district")
-        indexes = [
-            Index(fields=["name_uz"]),
-            Index(fields=["name_oz"]),
-            Index(fields=["name_ru"]),
-            Index(fields=["district"]),
-        ]
         verbose_name = _("Village")
         verbose_name_plural = _("Villages")
 
@@ -140,6 +146,20 @@ class Village(Model):
         """Validate that all name fields are provided."""
         if not all([self.name_uz, self.name_oz, self.name_ru]):
             raise ValidationError(_("All name fields must be provided."))
+
+    @classmethod
+    def search_by_name(cls, query, district=None, region=None):
+        """Optimized search method for finding villages by name."""
+        queryset = cls.objects.select_related('district', 'district__region').filter(
+            Q(name_uz__icontains=query) |
+            Q(name_oz__icontains=query) |
+            Q(name_ru__icontains=query)
+        )
+        if district:
+            queryset = queryset.filter(district=district)
+        if region:
+            queryset = queryset.filter(district__region=region)
+        return queryset.distinct()
 
     @property
     def district_name(self):

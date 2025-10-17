@@ -69,24 +69,30 @@ def get_enabled_views() -> set:
 @lru_cache(maxsize=32)
 def get_cache_settings() -> Dict[str, Any]:
     """
-    Get cache settings from configuration.
+    Get cache settings from the configuration.
 
     Returns:
         Dictionary of cache settings
     """
-    cache_settings = get_uzbekistan_setting("cache", {"enabled": True, "timeout": 3600})
+    cache_settings = get_uzbekistan_setting("cache", {
+        "enabled": True, 
+        "timeout": 3600,
+        "key_prefix": "uzbekistan"
+    })
     if cache_settings["enabled"]:
         try:
-            cache.set(
-                "healthy_check_uzbekistan", "alive", timeout=cache_settings["timeout"]
-            )
-            cache_data = cache.get("healthy_check_uzbekistan")
-            cache.delete("healthy_check_uzbekistan")
+            # Use a more efficient cache health check with prefix
+            key_prefix = cache_settings.get("key_prefix", "uzbekistan")
+            test_key = f"{key_prefix}_cache_health_check"
+            test_value = "alive"
+            cache.set(test_key, test_value, timeout=60)  # Short timeout for health check
+            cache_data = cache.get(test_key)
+            cache.delete(test_key)
             # Check if the cache is working correctly
-            if cache_data != "alive":
+            if cache_data != test_value:
                 raise CacheIncorrectlyConfigured("Cache is not configured correctly.")
         except Exception as e:
-            raise CacheIncorrectlyConfigured(e)
+            raise CacheIncorrectlyConfigured(f"Cache health check failed: {e}")
     return cache_settings
 
 
@@ -111,13 +117,17 @@ def import_conditional_classes(
     except ImportError as e:
         raise DynamicImportError(f"Failed to import module {module_name}: {str(e)}")
 
-    # Get enabled items based on class type
+    # Get enabled items based on a class type (cached)
     enabled_items = (
         get_enabled_views() if class_type == "views" else get_enabled_models()
     )
 
-    # Get enabled models for dependency checking
+    # Get enabled models for dependency checking (cached)
     enabled_models = get_enabled_models()
+
+    # Pre-filter items to avoid unnecessary processing
+    if not enabled_items:
+        return
 
     for item_name in enabled_items:
         try:
@@ -131,16 +141,16 @@ def import_conditional_classes(
             # Get the class
             cls = getattr(module, class_name)
 
-            # Check if class has required attributes
+            # Check if a class has required attributes
             if not hasattr(cls, "model"):
                 continue
 
-            # Check if model is enabled
+            # Check if the model is enabled
             model_name = cls.model.__name__.lower()
             if model_name not in enabled_models:
                 continue
 
-            # Check if view is enabled
+            # For views, double-check if the view is enabled (redundant but safe)
             if class_type == "views" and item_name not in get_enabled_views():
                 continue
 
