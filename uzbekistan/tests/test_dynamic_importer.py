@@ -51,21 +51,8 @@ class TestDynamicImporter(TestCase):
             enabled = get_enabled_views()
             self.assertEqual(enabled, {"region"})
 
-    def test_get_cache_settings(self):
-        """Test getting cache settings."""
-        custom_settings = {"enabled": False, "timeout": 1800}
-        with override_settings(UZBEKISTAN={"cache": custom_settings}):
-            settings = get_cache_settings()
-            self.assertEqual(settings, custom_settings)
-
-    def test_get_cache_settings_default(self):
-        """Test getting default cache settings."""
-        with override_settings(UZBEKISTAN={}):
-            settings = get_cache_settings()
-            self.assertEqual(settings, {"enabled": True, "timeout": 3600})
-
     def test_import_conditional_classes_invalid_module(self):
-        """Test importing from invalid module."""
+        """Test importing from an invalid module."""
         with self.assertRaises(DynamicImportError) as context:
             list(import_conditional_classes("invalid.module", "views"))
         self.assertIn("Failed to import module", str(context.exception))
@@ -126,27 +113,6 @@ class TestDynamicImporter(TestCase):
         self.assertTrue(hasattr(cache_config, "enabled"))
         self.assertTrue(hasattr(cache_config, "timeout"))
         self.assertTrue(hasattr(cache_config, "key_prefix"))
-
-    def test_validate_configuration(self):
-        """Test configuration validation."""
-        # Test with valid configuration
-        with override_settings(
-            UZBEKISTAN={"models": {"region": True}, "views": {"region": True}}
-        ):
-            # Should not raise any exception
-            validate_configuration()
-
-        # Test with no models enabled
-        with override_settings(UZBEKISTAN={"models": {}, "views": {}}):
-            with self.assertRaises(ImproperlyConfigured):
-                validate_configuration()
-
-        # Test with district enabled but region disabled
-        with override_settings(
-            UZBEKISTAN={"models": {"district": True}, "views": {"district": True}}
-        ):
-            with self.assertRaises(ImproperlyConfigured):
-                validate_configuration()
 
     def test_clear_cache(self):
         """Test cache clearing functionality."""

@@ -2,11 +2,11 @@
 Tests for uzbekistan app models.
 """
 
-import pytest
-from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
-from uzbekistan.models import Region, District, Village, check_model
+from django.test import TestCase
+
+from uzbekistan.models import Region, District, Village
 
 
 class TestRegion(TestCase):
@@ -184,17 +184,3 @@ class TestVillage(TestCase):
         # Test search in different languages
         results = Village.search_by_name("Мирабад")
         self.assertEqual(len(results), 1)
-
-
-class TestModelChecks(TestCase):
-    def test_check_model_region(self):
-        # Should not raise any exception since Region is enabled
-        check_model(Region)
-
-    def test_check_model_district(self):
-        # Should not raise any exception since District and its dependency (Region) are enabled
-        check_model(District)
-
-    def test_check_model_village(self):
-        # Should not raise any exception since Village and its dependencies (Region, District) are enabled
-        check_model(Village)

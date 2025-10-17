@@ -28,7 +28,8 @@ class TestAdmin(TestCase):
     def test_region_admin(self):
         admin = RegionAdmin(Region, self.site)
         self.assertEqual(
-            admin.list_display, ("name_uz", "name_oz", "name_ru", "name_en")
+            admin.list_display,
+            ("name_uz", "name_oz", "name_ru", "name_en", "get_district_count"),
         )
         self.assertEqual(
             admin.search_fields, ("name_uz", "name_oz", "name_ru", "name_en")
@@ -38,7 +39,14 @@ class TestAdmin(TestCase):
         admin = DistrictAdmin(District, self.site)
         self.assertEqual(
             admin.list_display,
-            ("name_uz", "name_oz", "name_ru", "name_en", "get_region_name"),
+            (
+                "name_uz",
+                "name_oz",
+                "name_ru",
+                "name_en",
+                "get_region_name",
+                "get_village_count",
+            ),
         )
         self.assertEqual(
             admin.search_fields,

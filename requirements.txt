@@ -6,6 +6,3 @@ pytest-django>=4.7.0
 pytest-cov>=4.1.0
 black>=23.11.0
 PyYAML>=6.0  # For YAML fixture file support
-# Performance optimization dependencies
-django-debug-toolbar>=4.2.0  # For development performance monitoring
-django-extensions>=3.2.0  # For additional Django management commands
