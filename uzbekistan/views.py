@@ -49,12 +49,12 @@ class BaseLocationView(ListAPIView):
         use_authentication = DynamicImporter.get_setting("use_authentication", False)
         return [] if not use_authentication else super().get_permissions()
 
-    def _generate_cache_key(self, request):
+    def _generate_cache_key(self, request, kwargs):
         """Generate a cache key using hash."""
         # Get cache configuration
         cache_config = DynamicImporter.get_cache_config()
 
-        query_string = str(sorted(request.query_params.items()))
+        query_string = str(sorted(request.query_params.items() | kwargs.items()))
         query_hash = hashlib.md5(
             query_string.encode(), usedforsecurity=False
         ).hexdigest()
@@ -66,7 +66,7 @@ class BaseLocationView(ListAPIView):
         if not cache_config.enabled:
             return super().list(request, *args, **kwargs)
 
-        cache_key = self._generate_cache_key(request)
+        cache_key = self._generate_cache_key(request, kwargs)
         cached_response = cache.get(cache_key)
 
         if cached_response:
