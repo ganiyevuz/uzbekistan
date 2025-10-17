@@ -55,7 +55,7 @@ class BaseLocationView(ListAPIView):
         cache_config = DynamicImporter.get_cache_config()
 
         query_string = str(sorted(request.query_params.items()))
-        query_hash = hashlib.md5(query_string.encode()).hexdigest()
+        query_hash = hashlib.md5(query_string.encode(), usedforsecurity=False).hexdigest()
         return f"{cache_config.key_prefix}_{self.__class__.__name__}_{query_hash}"
 
     def list(self, request, *args, **kwargs):
