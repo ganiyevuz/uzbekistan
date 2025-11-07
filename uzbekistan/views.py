@@ -53,8 +53,8 @@ class BaseLocationView(ListAPIView):
         """Generate a cache key using hash."""
         # Get cache configuration
         cache_config = DynamicImporter.get_cache_config()
-
-        query_string = str(sorted(request.query_params.items() | kwargs.items()))
+        items = {**request.query_params, **kwargs}
+        query_string = "&".join(f"{k}={v}" for k, v in items)
         query_hash = hashlib.md5(
             query_string.encode(), usedforsecurity=False
         ).hexdigest()
