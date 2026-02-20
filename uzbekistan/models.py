@@ -1,5 +1,5 @@
-from django.db.models import Model, CharField, ForeignKey, CASCADE, Q
 from django.core.exceptions import ValidationError
+from django.db.models import Model, CharField, ForeignKey, CASCADE, Q
 from django.utils.translation import gettext_lazy as _
 
 from uzbekistan.dynamic_importer import DynamicImporter
@@ -53,6 +53,16 @@ class Region(Model):
             | Q(name_ru__icontains=query)
             | Q(name_en__icontains=query)
         ).distinct()
+
+    def as_json(self):
+        """Return a JSON-serializable representation of the region."""
+        return {
+            "id": self.id,
+            "name_uz": self.name_uz,
+            "name_oz": self.name_oz,
+            "name_ru": self.name_ru,
+            "name_en": self.name_en,
+        }
 
 
 class District(Model):
@@ -108,6 +118,19 @@ class District(Model):
         """Get the name of the related region."""
         return self.region.name_uz
 
+    def as_json(self, include_region=False):
+        """Return a JSON-serializable representation of the district."""
+        data = {
+            "id": self.id,
+            "name_uz": self.name_uz,
+            "name_oz": self.name_oz,
+            "name_ru": self.name_ru,
+            "name_en": self.name_en,
+        }
+        if include_region:
+            data["region"] = self.region.as_json()  # noqa
+        return data
+
 
 class Village(Model):
     name_uz = CharField(
@@ -160,6 +183,20 @@ class Village(Model):
     def region_name(self):
         """Get the name of the related region."""
         return self.district.region_name
+
+    def as_json(self, include_district=False, include_region=False):
+        """Return a JSON-serializable representation of the village."""
+        data = {
+            "id": self.id,
+            "name_uz": self.name_uz,
+            "name_oz": self.name_oz,
+            "name_ru": self.name_ru,
+        }
+        if include_district:
+            data["district"] = self.district.as_json(include_region=include_region)  # noqa
+        elif include_region:
+            data["region"] = self.region_name
+        return data
 
 
 def check_model(model):
