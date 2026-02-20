@@ -193,7 +193,9 @@ class Village(Model):
             "name_ru": self.name_ru,
         }
         if include_district:
-            data["district"] = self.district.as_json(include_region=include_region)  # noqa
+            data["district"] = self.district.as_json(
+                include_region=include_region
+            )  # noqa
         elif include_region:
             data["region"] = self.region_name
         return data

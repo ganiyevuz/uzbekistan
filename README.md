@@ -25,6 +25,7 @@ A comprehensive Django package providing complete database of Uzbekistan's Regio
 - Configurable model activation
 - Built-in caching
 - Django Admin integration
+- JSON serialization methods on all models
 
 ## 🚀 Quick Start
 
@@ -106,6 +107,50 @@ GET /districts/1  # where 1 is the region_id
 
 # Get villages for a specific district
 GET /villages/1  # where 1 is the district_id
+```
+
+## 📋 JSON Serialization
+
+All models provide an `as_json()` method for lightweight JSON-serializable output — useful outside of DRF views (e.g., management commands, Celery tasks, webhooks).
+
+### Region
+
+```python
+region = Region.objects.get(pk=1)
+region.as_json()
+# {"id": 1, "name_uz": "Toshkent", "name_oz": "Тошкент", "name_ru": "Ташкент", "name_en": "Tashkent"}
+```
+
+### District
+
+```python
+district = District.objects.get(pk=1)
+
+# Basic usage
+district.as_json()
+# {"id": 1, "name_uz": "Bekobod", "name_oz": "Бекобод", "name_ru": "Бекабад", "name_en": "Bekabad"}
+
+# Include parent region
+district.as_json(include_region=True)
+# {"id": 1, "name_uz": "Bekobod", ..., "region": {"id": 1, "name_uz": "Toshkent", ...}}
+```
+
+### Village
+
+```python
+village = Village.objects.get(pk=1)
+
+# Basic usage
+village.as_json()
+# {"id": 1, "name_uz": "Olmazar", "name_oz": "Олмазар", "name_ru": "Олмазар"}
+
+# Include parent district
+village.as_json(include_district=True)
+# {"id": 1, ..., "district": {"id": 1, "name_uz": "Bekobod", ...}}
+
+# Include both district and region
+village.as_json(include_district=True, include_region=True)
+# {"id": 1, ..., "district": {"id": 1, ..., "region": {"id": 1, ...}}}
 ```
 
 ## 🛠️ Development
