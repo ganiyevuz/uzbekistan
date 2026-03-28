@@ -69,4 +69,5 @@ UZBEKISTAN = {
         "enabled": False,
         "timeout": 3600,
     },
+    "auto_seed": False,
 }

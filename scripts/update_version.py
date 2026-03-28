@@ -62,8 +62,21 @@ def main():
     project_root = Path(__file__).parent.parent
     init_file = project_root / "uzbekistan" / "__init__.py"
     pyproject_file = project_root / "pyproject.toml"
+    setup_file = project_root / "setup.py"
 
     update_version(init_file, pyproject_file, new_version)
+
+    # Update setup.py
+    if setup_file.exists():
+        content = setup_file.read_text()
+        new_content = re.sub(
+            r'VERSION\s*=\s*["\']([^"\']+)["\']',
+            f'VERSION = "{new_version}"',
+            content,
+        )
+        if content != new_content:
+            setup_file.write_text(new_content)
+            print(f"Updated version to {new_version} in {setup_file}")
 
 
 if __name__ == "__main__":

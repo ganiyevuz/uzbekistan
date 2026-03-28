@@ -74,17 +74,23 @@ urlpatterns = [
 ]
 ```
 
-4. Run migrations:
+4. Run migrations (fixtures are loaded automatically on first migrate):
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-5. Load data:
-```bash
-python manage.py loaddata regions
-python manage.py loaddata districts
-```
+> Data is seeded automatically after migration if the tables are empty.
+> Re-running `migrate` will **not** reload data that already exists.
+
+### Management Commands
+
+| Command | Description |
+|---------|-------------|
+| `python manage.py flush_uzbekistan` | Clear all Uzbekistan data (regions, districts, villages) |
+| `python manage.py flush_uzbekistan --no-input` | Clear without confirmation prompt |
+
+After flushing, the next `migrate` will re-seed the data automatically.
 
 ## 🔌 API Endpoints
 

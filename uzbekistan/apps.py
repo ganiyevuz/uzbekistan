@@ -1,7 +1,27 @@
 from django.apps import AppConfig
 from django.conf import settings
+from django.db.models.signals import post_migrate
 
 from uzbekistan.dynamic_importer import DynamicImporter
+
+
+def seed_uzbekistan(sender, **kwargs):
+    """Auto-load fixtures after migration if tables are empty."""
+    uzbekistan_settings = getattr(settings, "UZBEKISTAN", {})
+    if not uzbekistan_settings.get("auto_seed", True):
+        return
+
+    from django.core.management import call_command
+
+    from uzbekistan.models import Region, District
+
+    enabled_models = uzbekistan_settings.get("models", {})
+
+    if enabled_models.get("region") and not Region.objects.exists():
+        call_command("loaddata", "regions", app_label="uzbekistan", verbosity=0)
+
+    if enabled_models.get("district") and not District.objects.exists():
+        call_command("loaddata", "districts", app_label="uzbekistan", verbosity=0)
 
 
 class UzbekistanConfig(AppConfig):
@@ -35,3 +55,5 @@ class UzbekistanConfig(AppConfig):
             is_enabled = enabled_models.get(model_name, False)
             model._meta.managed = is_enabled
             model._meta.abstract = not is_enabled
+
+        post_migrate.connect(seed_uzbekistan, sender=self)

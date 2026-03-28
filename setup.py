@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = "2.7.2"
+VERSION = "2.9.0"
 
 # Read requirements
 with open("requirements.txt") as f:
